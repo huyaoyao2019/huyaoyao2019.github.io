@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="计算机网络, Hexo">
-    <meta name="description" content="
-002讲 网络 互联网 英特网12345678网络由若干结点Node和链接这些结点的链路link组成多个网络可通过路由器互连起来，这样就构成了一个覆盖范围更大的网络，即互联网，因此，互联网是‘网络的网络’因特网是世界最大的互联网inter">
+    <meta name="keywords" content="Hexo">
+    <meta name="description" content="Y4tackerservlet 线程安全123456789101112131415161718192021222324创建servlet项目	https://blog.csdn.net/Faith_cxz/article/details/1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>计算机网络 | Hexo</title>
+    <title>Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -335,12 +334,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">计算机网络</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -376,7 +375,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-07-05
+                    2023-07-20
                 </div>
                 
 
@@ -397,85 +396,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<h3 id="002讲-网络-互联网-英特网"><a href="#002讲-网络-互联网-英特网" class="headerlink" title="002讲 网络 互联网 英特网"></a>002讲 网络 互联网 英特网</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">网络由若干结点Node和链接这些结点的链路link组成</span><br><span class="line">多个网络可通过路由器互连起来，这样就构成了一个覆盖范围更大的网络，即互联网，因此，互联网是‘网络的网络’</span><br><span class="line">因特网是世界最大的互联网</span><br><span class="line">internet 和 Internet区别</span><br><span class="line">internet通用名词，泛指由多个计算机互连而成的网络。这些网络之间的通信协议可以是任意的。</span><br><span class="line">Internet则是个专用名词，指当前全球最大的、开放的由众多网络互连而成的特定计算机网络，它由TCP/IP协议族作为通信规则，其前身是美国的ARPANET</span><br><span class="line">ISP英特网服务提供者（Internet Service Provider）</span><br><span class="line">我国的ISP三个运营商</span><br></pre></td></tr></table></figure>
+                <h1 id="Y4tacker"><a href="#Y4tacker" class="headerlink" title="Y4tacker"></a>Y4tacker</h1><h3 id="servlet-线程安全"><a href="#servlet-线程安全" class="headerlink" title="servlet 线程安全"></a>servlet 线程安全</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">创建servlet项目</span><br><span class="line">	https://blog.csdn.net/Faith_cxz/article/details/127685847</span><br><span class="line">	配置maven</span><br><span class="line">	maven-archetype-webapp</span><br><span class="line">servlet线程安全 参考	</span><br><span class="line">	https://y4tacker.github.io/page/5/#content-inner</span><br><span class="line">	https://www.cnblogs.com/chanshuyi/p/5052426.html</span><br><span class="line"></span><br><span class="line">一些结论</span><br><span class="line">	doGet service方法确实共享了成员变量</span><br><span class="line">	python脚本要开两个 我麻了 纠结半天</span><br><span class="line">		url = &quot;http://127.0.0.1:8080/test01/ttt?cmd=ls&quot;</span><br><span class="line">		while 1:</span><br><span class="line">            r = requests.get(url)</span><br><span class="line">            if &#x27;Cal&#x27; in r.text:</span><br><span class="line">                print(r.text)</span><br><span class="line">        url = &quot;http://127.0.0.1:8080/test01/ttt?cmd=open -na Calculator&quot;</span><br><span class="line">		while 1:</span><br><span class="line">            r = requests.get(url)</span><br><span class="line">            if &#x27;Cal&#x27; in r.text:</span><br><span class="line">                print(r.text)</span><br><span class="line">	前一个是为了使status一直在true，然后每隔2秒(线程延时)就会response返回一个open -na Calculator</span><br><span class="line">static静态变量加上没太大用 	类的属性 类方法调用</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220817143559646.png" alt="image-20220817143559646"></p>
-<h3 id="003讲-电路交换-报文交换-分组交换"><a href="#003讲-电路交换-报文交换-分组交换" class="headerlink" title="003讲 电路交换 报文交换 分组交换"></a>003讲 电路交换 报文交换 分组交换</h3><h3 id><a href="#" class="headerlink" title></a><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220817151508922.png" alt="image-20220817151508922"></h3><h3 id="004讲-计算机网络的定义和分类"><a href="#004讲-计算机网络的定义和分类" class="headerlink" title="004讲 计算机网络的定义和分类"></a>004讲 计算机网络的定义和分类</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最简单的定义：一些互相连接的、自治的计算机的集合</span><br><span class="line">较好定义：计算机网络主要由一些通用的、可编程的硬件互连而成，而这些硬件并非专门用来实现某一特定目的（例如，传送数据或视频信号）。这些可编程硬件能够用来传送多种不同类型的数据，并能支持广泛的和日益增长的应用。</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.SingleThreadModel;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet(&quot;/ttt&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> status;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        status = <span class="literal">true</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">cmd</span> <span class="operator">=</span> req.getParameter(<span class="string">&quot;cmd&quot;</span>);</span><br><span class="line">        <span class="type">SimpleDateFormat</span> <span class="variable">format</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyy-MM-dd hh:mm:ss&quot;</span>);</span><br><span class="line">        System.out.println(status+<span class="string">&quot; if-0 &quot;</span>+Thread.currentThread().getName()+ <span class="string">&quot; &quot;</span> + format.format(<span class="keyword">new</span> <span class="title class_">Date</span>()));</span><br><span class="line">        <span class="keyword">if</span> (cmd.contains(<span class="string">&quot;Calculator&quot;</span>)) &#123;</span><br><span class="line">            status = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(status+<span class="string">&quot; if-1 &quot;</span>+Thread.currentThread().getName()+ <span class="string">&quot; &quot;</span> + format.format(<span class="keyword">new</span> <span class="title class_">Date</span>()));</span><br><span class="line">        <span class="keyword">if</span> (!status) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(status+<span class="string">&quot; if-2 &quot;</span>+Thread.currentThread().getName()+ <span class="string">&quot; &quot;</span> + format.format(<span class="keyword">new</span> <span class="title class_">Date</span>()));</span><br><span class="line">        System.out.println(cmd);</span><br><span class="line">        <span class="keyword">if</span> (cmd.contains(<span class="string">&quot;Calculator&quot;</span>))&#123;</span><br><span class="line">            System.out.println(cmd);</span><br><span class="line">            resp.getWriter().write(cmd);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220817152523637.png" alt="image-20220817152523637"></p>
-<h3 id="007讲-计算机网络体系结构-上"><a href="#007讲-计算机网络体系结构-上" class="headerlink" title="007讲 计算机网络体系结构 上"></a>007讲 计算机网络体系结构 上</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220819000155195.png" alt="image-20220819000155195"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220819000309569.png" alt="image-20220819000309569"></p>
-<h3 id="008讲-下"><a href="#008讲-下" class="headerlink" title="008讲 下"></a>008讲 下</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220819000340520.png" alt="image-20220819000340520"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220819001727359.png" alt="image-20220819001727359"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220819001933451.png" alt="image-20220819001933451"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/typora_files" alt="image-20220819002036681"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/typora_files" alt="image-20220819002145778"></p>
-<h3 id="009讲-计算机网络体系结构-分层思想举例"><a href="#009讲-计算机网络体系结构-分层思想举例" class="headerlink" title="009讲 计算机网络体系结构 分层思想举例"></a>009讲 计算机网络体系结构 分层思想举例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.bilibili.com/video/BV1Y4411U71L?spm_id_from=333.999.0.0&amp;vd_source=d5448e640adeda715972607248810967</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">修复</span><br><span class="line">    1.implements SingleThreadModel 成员变量--&gt;静态变量 		不顶用</span><br><span class="line">		SingleThreadModel接口在Servlet API2.4中将不推荐使用SingleThreadModel</span><br><span class="line">	2.避免使用成员变量 	e.g.把申明类型写道service或doGet方法里面	相当于使用局部变量</span><br><span class="line">	3.使用synchronized关键字 	保证只有一个线程可以访问被保护的区域</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="012讲-习题"><a href="#012讲-习题" class="headerlink" title="012讲 习题"></a>012讲 习题</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220819154537989.png" alt="image-20220819154537989"></p>
-<h3 id="028讲-点对点协议"><a href="#028讲-点对点协议" class="headerlink" title="028讲 点对点协议"></a>028讲 点对点协议</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220820192706458.png" alt="image-20220820192706458"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220820192606493.png" alt="image-20220820192606493"></p>
-<h3 id="033讲-MAC地址"><a href="#033讲-MAC地址" class="headerlink" title="033讲 MAC地址"></a>033讲 MAC地址</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220820200237389.png" alt="image-20220820200237389"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MAC地址有时也被称为物理地址。请注意这并不意味MAC地址属于网络体系中的物理层</span><br><span class="line">一般情况下，用户主语会包含两个网络适配器：有限局域网适配器（有线网卡）和无线局域网适配器（无线网卡）。每个网络适配器都会有一个全球唯一的MAC地址。而交换机和路由器往往拥有更多的网络接口，所以会拥有更多的MAC地址。</span><br><span class="line">综上，严格来说，MAC地址是对网络上个接口的唯一标识，而不是对网络上各设备的唯一标识。</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220820200852377.png" alt="image-20220820200852377"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220820201125472.png" alt="image-20220820201125472"></p>
-<h3 id="034讲-IP地址"><a href="#034讲-IP地址" class="headerlink" title="034讲 IP地址"></a>034讲 IP地址</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IP地址是因特网上主机和路由器所使用的地址，用于标识两部分信息</span><br><span class="line">网络编号：标识因特网上数以万记的网络</span><br><span class="line">主机编号：标识网络上不同主机或路由器各接口</span><br></pre></td></tr></table></figure>
-
-<h3 id="035讲-ARP协议"><a href="#035讲-ARP协议" class="headerlink" title="035讲 ARP协议"></a>035讲 ARP协议</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220820222216312.png" alt="image-20220820222216312"></p>
-<h3 id="036讲-集线器与交换机的区别"><a href="#036讲-集线器与交换机的区别" class="headerlink" title="036讲 集线器与交换机的区别"></a>036讲 集线器与交换机的区别</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220820222512235.png" alt="image-20220820222512235"></p>
-<h3 id="044讲-IPv4地址"><a href="#044讲-IPv4地址" class="headerlink" title="044讲 IPv4地址"></a>044讲 IPv4地址</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220821143941202.png" alt="image-20220821143941202"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220821144306592.png" alt="image-20220821144306592"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220821144507063.png" alt="image-20220821144507063"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220821162039904.png" alt="image-20220821162039904"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220821162229588.png" alt="image-20220821162229588"></p>
-<h3 id="045讲-划分子网得ipv4地址"><a href="#045讲-划分子网得ipv4地址" class="headerlink" title="045讲 划分子网得ipv4地址"></a>045讲 划分子网得ipv4地址</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220821164202223.png" alt="image-20220821164202223"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220821164938993.png" alt="image-20220821164938993"></p>
-<h3 id="046讲-无分类编址的ipv4地址"><a href="#046讲-无分类编址的ipv4地址" class="headerlink" title="046讲 无分类编址的ipv4地址"></a>046讲 无分类编址的ipv4地址</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220821170054770.png" alt="image-20220821170054770"></p>
-<h3 id="047讲-ipv4地址应用规划"><a href="#047讲-ipv4地址应用规划" class="headerlink" title="047讲 ipv4地址应用规划"></a>047讲 ipv4地址应用规划</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220821180614102.png" alt="image-20220821180614102"></p>
-<h3 id="049讲-静态路由配置及可能产生的路由环路问题"><a href="#049讲-静态路由配置及可能产生的路由环路问题" class="headerlink" title="049讲 静态路由配置及可能产生的路由环路问题"></a>049讲 静态路由配置及可能产生的路由环路问题</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220821212038824.png" alt="image-20220821212038824"></p>
-<h3 id="051讲-路由信息协议RIP的基本工作原理"><a href="#051讲-路由信息协议RIP的基本工作原理" class="headerlink" title="051讲 路由信息协议RIP的基本工作原理"></a>051讲 路由信息协议RIP的基本工作原理</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220824172516310.png" alt="image-20220824172516310"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220824172409433.png" alt="image-20220824172409433"></p>
-<h3 id="052讲-开放最短路径有限OSPF的基本工作原理"><a href="#052讲-开放最短路径有限OSPF的基本工作原理" class="headerlink" title="052讲 开放最短路径有限OSPF的基本工作原理"></a>052讲 开放最短路径有限OSPF的基本工作原理</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220825120304564.png" alt="image-20220825120304564"></p>
-<h3 id="055讲-网际控制报文协议ICMP"><a href="#055讲-网际控制报文协议ICMP" class="headerlink" title="055讲 网际控制报文协议ICMP"></a>055讲 网际控制报文协议ICMP</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1661526906733.png" alt="1661526906733"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1661526958759.png" alt="1661526958759"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1661527102767.png" alt="1661527102767"></p>
-<h3 id="056讲-虚拟专用网与网络地址转换NAT"><a href="#056讲-虚拟专用网与网络地址转换NAT" class="headerlink" title="056讲 虚拟专用网与网络地址转换NAT"></a>056讲 虚拟专用网与网络地址转换NAT</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1661560043950.png" alt="1661560043950"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1661560868562.png" alt="1661560868562"></p>
-<h3 id="058讲-运输层端口号、复用与分用的概念"><a href="#058讲-运输层端口号、复用与分用的概念" class="headerlink" title="058讲 运输层端口号、复用与分用的概念"></a>058讲 运输层端口号、复用与分用的概念</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1661609966223.png" alt="1661609966223"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1661610485208.png" alt="1661610485208"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">视频6分钟开始举例用户网文WEB服务器（使用DNS协议和HTTP协议）</span><br><span class="line">https://www.bilibili.com/video/BV1x4411d7HU?p=58&amp;spm_id_from=pageDriver&amp;vd_source=d5448e640adeda715972607248810967</span><br></pre></td></tr></table></figure>
-
-<h3 id="059讲-UDP和TCP的对比"><a href="#059讲-UDP和TCP的对比" class="headerlink" title="059讲 UDP和TCP的对比"></a>059讲 UDP和TCP的对比</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1661612374565.png" alt="1661612374565"></p>
-<h3 id="060讲-TCP的流量控制"><a href="#060讲-TCP的流量控制" class="headerlink" title="060讲 TCP的流量控制"></a>060讲 TCP的流量控制</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220828085017386.png" alt="image-20220828085017386"></p>
-<h3 id="061讲-TCP的拥塞控制"><a href="#061讲-TCP的拥塞控制" class="headerlink" title="061讲 TCP的拥塞控制"></a>061讲 TCP的拥塞控制</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220828085441959.png" alt="image-20220828085441959"></p>
-<h3 id="064讲-TCP的运输连接管理-—-TCP的连接建立"><a href="#064讲-TCP的运输连接管理-—-TCP的连接建立" class="headerlink" title="064讲 TCP的运输连接管理 — TCP的连接建立"></a>064讲 TCP的运输连接管理 — TCP的连接建立</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">有些逻辑可以回过头再看视频</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220828091940293.png" alt="image-20220828091940293"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220828092431863.png" alt="image-20220828092431863"></p>
-<h3 id="065讲-TCP的运输连接管理-—-TCP的连接释放"><a href="#065讲-TCP的运输连接管理-—-TCP的连接释放" class="headerlink" title="065讲 TCP的运输连接管理 — TCP的连接释放"></a>065讲 TCP的运输连接管理 — TCP的连接释放</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220828094327003.png" alt="image-20220828094327003"></p>
-<h3 id="069讲-动态主机配置协议DHCP"><a href="#069讲-动态主机配置协议DHCP" class="headerlink" title="069讲 动态主机配置协议DHCP"></a>069讲 动态主机配置协议DHCP</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220828103652927.png" alt="image-20220828103652927"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220828104549726.png" alt="image-20220828104549726"></p>
-<h3 id="070讲-域名系统DNS"><a href="#070讲-域名系统DNS" class="headerlink" title="070讲 域名系统DNS"></a>070讲 域名系统DNS</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1661692341892.png" alt="1661692341892"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1661692466944.png" alt="1661692466944"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1661693526669.png" alt="1661693526669"></p>
-<h3 id="071讲-文件传送协议FTP"><a href="#071讲-文件传送协议FTP" class="headerlink" title="071讲 文件传送协议FTP"></a>071讲 文件传送协议FTP</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220829094948614-1661785352243.png"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1661698686242.png" alt="1661698686242"></p>
-<h3 id="072讲-电子邮件"><a href="#072讲-电子邮件" class="headerlink" title="072讲 电子邮件"></a>072讲 电子邮件</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220829091323295.png" alt="image-20220829091323295"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220829091637584.png" alt="image-20220829091637584"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220829091817657.png" alt="image-20220829091817657"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POP3和IMAP4都采用基于TCP连接的客户/服务器方式。POP3使用熟知端口110，IMAP4使用熟知端口143</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220829092538460.png" alt="image-20220829092538460"></p>
-<h3 id="073讲-万维网WWW"><a href="#073讲-万维网WWW" class="headerlink" title="073讲 万维网WWW"></a>073讲 万维网WWW</h3><p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220829092957191.png" alt="image-20220829092957191"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">统一资源定位符URL：&lt;协议&gt;://&lt;主机&gt;:&lt;端口&gt;/&lt;路径&gt;</span><br><span class="line">超文本标记语言HTML(HyperText Markup Language):使用多种标签描述网页结构和内容</span><br><span class="line">层叠样式表CSS(Cascading Style Sheets):从审美角度描述网页的样式</span><br><span class="line">JavaScript:控制网页的行为</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220829095226130.png" alt="image-20220829095226130"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220829101825835.png" alt="image-20220829101825835"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220829102225444.png" alt="image-20220829102225444"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220829102545606.png" alt="image-20220829102545606"></p>
-<p><img src="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20220829103424049.png" alt="image-20220829103424049"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> doGet		在方法前面添加锁</span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -502,7 +429,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://huyaoyao2019.github.io/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">http://huyaoyao2019.github.io/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</a>
+                    <a href="http://huyaoyao2019.github.io/2023/07/20/%E5%8D%9A%E5%AE%A2%E5%A4%8D%E7%8E%B0/">http://huyaoyao2019.github.io/2023/07/20/%E5%8D%9A%E5%AE%A2%E5%A4%8D%E7%8E%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -620,13 +547,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/07/05/%E5%A2%A8%E8%80%85%E5%AD%A6%E9%99%A2/">
+                <a href="/2023/07/20/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="墨者学院">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="java代码审计">
                         
-                        <span class="card-title">墨者学院</span>
+                        <span class="card-title">java代码审计</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -637,16 +564,12 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-20
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/web%E9%9D%B6%E5%9C%BA/" class="post-category">
-                                    web靶场
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            John Doe
                             
                         </span>
                     </div>
@@ -658,16 +581,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                <a href="/2023/07/10/%E4%BD%BF%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="计算机网络">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">计算机网络</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -678,7 +601,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-10
                             </span>
                         <span class="publish-author">
                             
@@ -688,7 +611,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>

