@@ -386,7 +386,7 @@ portswiggersqli123456789101112131415&amp;#x27;&amp;#x27;&amp;#x27;">
 
 
 
-<h1 id="portswigger"><a href="#portswigger" class="headerlink" title="portswigger"></a>portswigger</h1><h3 id="sqli"><a href="#sqli" class="headerlink" title="sqli"></a>sqli</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">SELECT * FROM products WHERE category = <span class="string">&#x27;Gifts&#x27;</span> AND released = <span class="number">1</span></span><br><span class="line">只能</span><br><span class="line">	<span class="string">&#x27;+OR+1=1--</span></span><br><span class="line"><span class="string">	&#x27;</span> <span class="keyword">or</span> <span class="number">1</span>=<span class="number">1</span>--;</span><br><span class="line">    这里不加空格 应该是这个意思 select <span class="string">&#x27;2&#x27;</span>--<span class="string">&#x27;1232&#x27;</span>		<span class="comment">#1234</span></span><br><span class="line">    但是我想不出怎么闭合Gift后面的<span class="string">&#x27;		应为是oracle数据库 --后面不用空格</span></span><br><span class="line"><span class="string">很奇怪	只能or</span></span><br><span class="line"><span class="string">	不能&#x27;</span>+||+<span class="number">1</span>=<span class="number">1</span>--		这个也是oracle数据库的原因</span><br><span class="line">语法报错</span><br><span class="line">	select * <span class="keyword">from</span> users where user_id = <span class="number">1</span> --;<span class="string">&#x27;1213&#x27;</span>;</span><br><span class="line"></span><br><span class="line">考虑用<span class="keyword">or</span> 不用 ||</span><br></pre></td></tr></table></figure>
+<h1 id="portswigger"><a href="#portswigger" class="headerlink" title="portswigger"></a>portswigger</h1><h3 id="sqli"><a href="#sqli" class="headerlink" title="sqli"></a>sqli</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">SELECT * FROM products WHERE category = <span class="string">&#x27;Gifts&#x27;</span> AND released = <span class="number">1</span></span><br><span class="line">只能</span><br><span class="line">	<span class="string">&#x27;+OR+1=1--</span></span><br><span class="line"><span class="string">	&#x27;</span> <span class="keyword">or</span> <span class="number">1</span>=<span class="number">1</span>--;</span><br><span class="line">    这里不加空格 应该是这个意思 select <span class="string">&#x27;2&#x27;</span>--<span class="string">&#x27;1232&#x27;</span>		<span class="comment">#1234</span></span><br><span class="line">    但是我想不出怎么闭合Gift后面的<span class="string">&#x27;		因为是oracle数据库 --后面不用空格</span></span><br><span class="line"><span class="string">很奇怪	只能or</span></span><br><span class="line"><span class="string">	不能&#x27;</span>+||+<span class="number">1</span>=<span class="number">1</span>--		这个也是oracle数据库的原因</span><br><span class="line">语法报错</span><br><span class="line">	select * <span class="keyword">from</span> users where user_id = <span class="number">1</span> --;<span class="string">&#x27;1213&#x27;</span>;</span><br><span class="line"></span><br><span class="line">考虑用<span class="keyword">or</span> 不用 ||</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	SQL injection vulnerability allowing login bypass</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">输入用户名和密码登录</span><br><span class="line">只能用	administrato<span class="string">r&#x27;--</span></span><br><span class="line"><span class="string">	select * from users where user_id = 1--&#x27;</span><span class="number">0</span><span class="string">&#x27;;			#有结果</span></span><br><span class="line"><span class="string">    select * from users where user_id = 1--&#x27;</span>dasdad<span class="string">&#x27;;	#有结果</span></span><br><span class="line"><span class="string">很奇怪</span></span><br><span class="line"><span class="string">	不能administrator&#x27;</span><span class="comment">#			这个是把;也给注释了可能是这个原因</span></span><br><span class="line">    	select * <span class="keyword">from</span> users where user_id = <span class="number">1</span>;<span class="comment">#&#x27;12321312&#x27;		有结果</span></span><br><span class="line">	不能administrato<span class="string">r&#x27;||&#x27;</span><span class="number">1</span>		这个当然不能 没有注释掉需要password也对</span><br><span class="line"></span><br><span class="line">猜测</span><br><span class="line">	select * <span class="keyword">from</span> users where username = <span class="string">&#x27;administrator&#x27;</span> <span class="keyword">and</span> password = <span class="string">&#x27;xxxx&#x27;</span>;</span><br><span class="line">这里很奇怪</span><br><span class="line">这里需要考虑注释符号把;闭合的情况</span><br></pre></td></tr></table></figure>
 
@@ -739,17 +739,18 @@ portswiggersqli123456789101112131415&amp;#x27;&amp;#x27;&amp;#x27;">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/10/06/%E6%8C%96%E6%B4%9E%E6%97%A5%E8%AE%B0/">
+                <a href="/2023/07/25/portswigger/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="portswigger">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">portswigger</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -759,16 +760,25 @@ portswiggersqli123456789101112131415&amp;#x27;&amp;#x27;&amp;#x27;">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Hyy
+                            hyy
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/web%E9%9D%B6%E5%9C%BA/">
+                        <span class="chip bg-color">web靶场</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -997,7 +1007,7 @@ portswiggersqli123456789101112131415&amp;#x27;&amp;#x27;&amp;#x27;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">Hyy</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
